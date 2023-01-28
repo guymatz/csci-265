@@ -1,0 +1,30 @@
+\input{header.tex}
+	
+\begin{enumerate}
+	
+\item Given the following English descriptions of a language, write a regular expression that defines the language, and draw the state diagram of a DFA that accepts the language. For all languages, let $\Sigma = \{a, b\}$
+
+\begin{enumerate}
+	\item The language consisting of all words having a number of a's that is a multiple of 3.
+    \item The language consisting of all words that contain "babb".
+    \item The language consisting of all words that end in "ba".
+    \item The language consisting of all words that do not end in "ba".
+
+\end{enumerate}
+\newpage
+		
+\item John is training for a marathon and he can easily alternate between running a mile and walking a mile. If he runs for 2 miles in a row, he becomes fatigued, and must then walk for 2 miles in a row in order to no longer be fatigued. When he is fatigued, he can still alternate between running a mile and walking a mile, but if he runs 2 miles in a row while already fatigued, he will collapse on the side of the road. If he runs 3 miles in a row at any point, he will also collapse. Let the letter 'a' stand for John running 1 mile, and the letter 'b' stand for John walking 1 mile. Draw a DFA which accepts all possible runs in which John does not collapse on the side of the road.
+		
+	\newpage
+\item Create a DFA to model a vending machine that accepts nickels, dimes, and quarters, and has 2 items for sale, costing 25 cents and 35 cents. Your DFA should take a sequence of inserted coins as input, and accept if you've put in the exact amount for either of the items.
+		
+\newpage
+\item Could we express the language recognized by the DFA in question 3 as a regular expression? How do we know if we could? What would be our approach to writing that regular expression?
+		
+\newpage
+\item What approaches might we take to prove that two regular languages are equivalent? Does it depend on the way in which each language is expressed? List as many ways as you can think of.
+		
+		
+\end{enumerate}
+
+\input{footer.tex}
