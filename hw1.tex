@@ -112,6 +112,45 @@
 	\newpage
 \item Create a DFA to model a vending machine that accepts nickels, dimes, and quarters, and has 2 items for sale, costing 25 cents and 35 cents. Your DFA should take a sequence of inserted coins as input, and accept if you've put in the exact amount for either of the items.
 		
+
+\begin{tikzpicture}
+	\node[state, initial] (q0) {$q_0$};
+	\node[state, right of=q0] (q10) {$q_{10}$};
+	\node[state, accepting, above right of=q0] (q25) {$q_{25}$};
+	\node[state, below right of=q0] (q5) {$q_5$};
+
+	\node[state, above right of=q25] (q30) {$q_{30}$};
+	\node[state, accepting,  right of=q10] (q35) {$q_{35}$};
+	\node[state, below right of=q10] (q15) {$q_{15}$};
+	\node[state, below right of=q5] (q20) {$q_{20}$};
+	\draw
+	% from 0
+	(q0) edge[above] node{25} (q25)
+    (q0) edge[above] node{10} (q10)
+	(q0) edge[above] node{5} (q5)
+	% from 5
+	(q5) edge[above] node{5} (q10)
+	% from 25
+	(q25) edge[above] node{10} (q35)
+	(q25) edge[above] node{5} (q30)
+	% from 10
+	(q10) edge[above] node{25} (q35)
+	(q10) edge[bend  left, above] node{5} (q15)
+	(q10) edge[left] node{10} (q20)
+
+	% from 30
+	(q30) edge[bend  left, right] node{5} (q35)
+	% from 15
+	(q15) edge[bend  left, above] node{10} (q25)
+	(q15) edge[bend  left, right] node{5} (q20)
+	% from 20
+	(q20) edge[bend  right, above] node{10} (q30)
+	(q20) edge[bend  right, above] node{5} (q25)
+
+	;
+\end{tikzpicture}
+
+
 \newpage
 \item Could we express the language recognized by the DFA in question 3 as a regular expression? How do we know if we could? What would be our approach to writing that regular expression?
 		
