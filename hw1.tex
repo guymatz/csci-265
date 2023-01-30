@@ -90,6 +90,24 @@
 \newpage
 		
 \item John is training for a marathon and he can easily alternate between running a mile and walking a mile. If he runs for 2 miles in a row, he becomes fatigued, and must then walk for 2 miles in a row in order to no longer be fatigued. When he is fatigued, he can still alternate between running a mile and walking a mile, but if he runs 2 miles in a row while already fatigued, he will collapse on the side of the road. If he runs 3 miles in a row at any point, he will also collapse. Let the letter 'a' stand for John running 1 mile, and the letter 'b' stand for John walking 1 mile. Draw a DFA which accepts all possible runs in which John does not collapse on the side of the road.
+
+\begin{tikzpicture}
+	\node[state, initial] (q1) {$q_1$};
+	\node[state, right of=q1] (q2) {$q_2$};
+	\node[state, right of=q2] (q3) {$q_3$};
+	\node[state, below left of=q3] (q4) {$q_4$};
+	\node[state, accepting, right of=q3] (q5) {$q_5$};
+	\draw
+	(q1) edge[loop above] node{b} (q1)
+	(q1) edge[bend  left, above] node{a} (q2)
+	(q2) edge[bend  left, above] node{b} (q1)
+	(q2) edge[bend  left, above] node{a} (q3)
+%	(q3) edge[bend  left, above] node{a} (q5)
+	(q3) edge[bend  left, below] node{b} (q4)
+	(q4) edge[bend  left, above] node{a} (q3)
+	(q4) edge[bend  left, above] node{b} (q1)
+	;
+\end{tikzpicture}
 		
 	\newpage
 \item Create a DFA to model a vending machine that accepts nickels, dimes, and quarters, and has 2 items for sale, costing 25 cents and 35 cents. Your DFA should take a sequence of inserted coins as input, and accept if you've put in the exact amount for either of the items.
