@@ -7,7 +7,7 @@
 \begin{enumerate}
 	\item \textbf{The language consisting of all words having a number of a's that is a multiple of 3.}
 	\\
-	Regular Expression: $(a+b)^*(aaa)^*(a+b)^*$
+	Regular Expression: $(aaa)^*$
 	\\
 	State Diagram:\\
 	 \begin{tikzpicture}
@@ -16,13 +16,10 @@
 	 	\node[state, , right of=q2] (q3) {$q_3$};
         \node[state, accepting, right of=q3] (q4) {$q_4$};
 	 	\draw
-	 	(q1) edge[loop above] node{b} (q1)
 	 	(q1) edge[bend  left, above] node{a} (q2)
-	  	(q2) edge[bend  left, below] node{b} (q1)
         (q2) edge[bend  left, above] node{a} (q3)
-        (q3) edge[bend  left, below] node{b} (q1)
         (q3) edge[bend  left, above] node{a} (q4)
-        (q4) edge[loop above] node{a,b} (q4)
+        (q4) edge[bend left, below] node{a} (q2)
 	  	;
 	 \end{tikzpicture}
 	
@@ -40,9 +37,9 @@
     	\draw
     	(q1) edge[loop above] node{a} (q1)
     	(q1) edge[bend  left, above] node{b} (q2)
-    	(q2) edge[bend  left, below] node{b} (q1)
+    	(q2) edge[bend  left, above] node{b} (q1)
     	(q2) edge[bend  left, above] node{a} (q3)
-    	(q3) edge[bend  left, below] node{a} (q1)
+    	(q3) edge[bend  left, above] node{a} (q1)
     	(q3) edge[bend  left, above] node{b} (q4)
     	(q4) edge[bend  left, above] node{b} (q5)
      	(q4) edge[bend  left, below] node{a} (q1)
@@ -62,8 +59,10 @@
     	\draw
     	(q1) edge[loop above] node{a} (q1)
     	(q1) edge[bend  left, above] node{b} (q2)
-    	(q2) edge[bend  left, below] node{b} (q1)
+    	(q2) edge[loop above] node{b} (q2)
     	(q2) edge[bend  left, above] node{a} (q3)
+    		(q3) edge[bend left, above] node{b}(q2)
+       (q3) edge[bend left, below] node{a}(q1)
     	;
     \end{tikzpicture}
 
@@ -80,9 +79,10 @@
     	\draw
     	(q1) edge[bend  left, above] node{a} (q2)
     	(q2) edge[bend  left, below] node{b} (q1)
-    	(q1) edge[bend  right, below] node{b} (q3)
+    	(q1) edge[bend  right, above] node{b} (q3)
     	(q2) edge[bend  left, above] node{a} (q4)
     	(q3) edge[bend  right, above] node{a,b} (q4)
+    	(q4) edge[bend  left, below] node{a,b} (q1)
     	;
     \end{tikzpicture}
 
@@ -141,7 +141,7 @@
 	% from 30
 	(q30) edge[bend  left, right] node{5} (q35)
 	% from 15
-	(q15) edge[bend  left, above] node{10} (q25)
+	(q15) edge[bend  left, below] node{10} (q25)
 	(q15) edge[bend  left, right] node{5} (q20)
 	% from 20
 	(q20) edge[bend  right, above] node{10} (q30)
