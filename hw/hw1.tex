@@ -6,24 +6,28 @@
 
 \begin{enumerate}
 	\item \textbf{The language consisting of all words having a number of a's that is a multiple of 3.}
+	% If the empty state is in the language then the initial state must be accepting,
+	% otherwie rejecting
 	\\
-	Regular Expression: $(aaa)^*$
+	Regular Expression: $b^*(ab*ab*ab*)^*b^*$
 	\\
 	State Diagram:\\
 	 \begin{tikzpicture}
-	 	\node[state, initial] (q1) {$q_1$};
+	 	\node[state, accepting, initial] (q1) {$q_1$};
 	 	\node[state, right of=q1] (q2) {$q_2$};
-	 	\node[state, , right of=q2] (q3) {$q_3$};
-        \node[state, accepting, right of=q3] (q4) {$q_4$};
+	 	\node[state, below left of=q2] (q3) {$q_3$};
 	 	\draw
-	 	(q1) edge[bend  left, above] node{a} (q2)
-        (q2) edge[bend  left, above] node{a} (q3)
-        (q3) edge[bend  left, above] node{a} (q4)
-        (q4) edge[bend left, below] node{a} (q2)
+	 	(q1) edge[loop above] node{b} (q1)
+	 	(q1) edge[above] node{a} (q2)
+	 	(q2) edge[loop above] node{b} (q2)
+        (q2) edge[above] node{a} (q3)
+        (q3) edge[left] node{a} (q1)
+        (q3) edge[loop below] node{b} (q3)
 	  	;
 	 \end{tikzpicture}
 	
     \item \textbf{The language consisting of all words that contain "babb".}
+    % The shortest word in the lanuage must have a direct path to an accepting state
     \\
     Regular Expression: $(a+b)^*babb(a+b)^*$
     \\
@@ -49,6 +53,9 @@
 
     \item \textbf{The language consisting of all words that end in "ba".}
     \\
+    % to get the negation / complement of  lenguage, swap the accepting/rejecting states
+    
+    % languages are closed under complement, 
     Regular Expression: $(a+b)^*ba$
     \\
     State Diagram:\\
@@ -153,11 +160,15 @@
 
 \newpage
 \item \textbf{Could we express the language recognized by the DFA in question 3 as a regular expression? How do we know if we could? What would be our approach to writing that regular expression?}
+% Any DFA has a regex, any regex has a DFA
+% For writing out regex, since the language is finit, just OR together all possible words in the language
 \\\\
 My gut feeling is that if we can express a language with a DFA, then we can express it as a regular expression.  I would approach writing this one with an infinite number of monkeys on an infinite number of typewriters.
 		
 \newpage
 \item \textbf{What approaches might we take to prove that two regular languages are equivalent? Does it depend on the way in which each language is expressed? List as many ways as you can think of.}
+%
+% 
 \\\\
 I imagine there might be two steps to determining  if two languages are equivalent.  First would be to compare the letters in the alphabet of the language.  I don't believe they need to be the same, but there should be the same number of letters in each.  Then would be the step to determine if the equivalent letters in each language the cause a DFA to transition in the same way.
 
