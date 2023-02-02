@@ -86,7 +86,7 @@ Yes.  $L = L\kleene - \epsilon$ and $L \subseteq L^2$  so $L^2 = L\kleene  - \ep
   	;
   \end{tikzpicture}
 
-  \item The language of all words that begin or end with a double letter.
+  \item \textbf{The language of all words that begin or end with a double letter.}
     \\
   Regular Expression: $(aa+bb)(a+b)\kleene(aa+bb)$
   \\
@@ -117,7 +117,32 @@ Yes.  $L = L\kleene - \epsilon$ and $L \subseteq L^2$  so $L^2 = L\kleene  - \ep
   	;
   \end{tikzpicture}
   
-  \item The language of all words with only a's or only b's. For clarification, the empty string is not in this language.
+  \item \textbf{The language of all words with only $a$'s or only $b$'s. For clarification, the empty string is not in this language.}
+  \\
+  Regular Expression: $aa\kleene + bb\kleene$
+  \\
+    Definition: 
+  \begin{itemize}
+  	\item Finite set of States: $Q = \{1,2,3\}$
+  	\item Finite set of Symbols in the Language: $\Sigma = \{a,b\}$
+  	\item Transition Function: $\delta$
+  	\item Initial State: $\{1\}$
+  	\item Final State: $\{2,3\}$
+  \end{itemize}
+  
+  State Diagram:\\
+  \begin{tikzpicture}
+	\node[state, initial] (q1) {$q_1$};
+	\node[state, accepting, above right of=q1] (q2) {$q_2$};
+	\node[state, accepting, below right of=q1] (q3) {$q_3$};
+	\draw
+
+	(q1) edge[above] node{a} (q2)
+		(q1) edge[above] node{b} (q3)
+	(q2) edge[loop above] node{a} (q2)
+	(q3) edge[loop below] node{b} (q3)
+	;
+\end{tikzpicture}
 \end{enumerate}
 
 
