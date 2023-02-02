@@ -6,20 +6,29 @@
 
 \begin{enumerate}
 	\item All words in which a appears tripled, if at all. This means that every clump of a's contains 3 or 6 or 9 or 12, etc. a's.
+	$$b^*(aaa)^*b^*$$
     \item All words that contain at least one of the strings S1, S2, S3, or S4.
+    
     \item All words that contain exactly 2 b's or exactly 3 b's.
+    $$(a^*ba^*ba^*) + (a^*ba^*ba^*ba^*)$$
     \item All strings that end in a double letter. A double letter means the same letter repeated twice - i.e., aa or bb.
+    $$(a^*b^*)^*(aa + bb)$$
     \item All strings that do not end in a double letter.
+    $$(a^*b^*)^*(ab + ba)$$
     \item All strings that have exactly 1 occurrence of a double letter in them.
+    $$((ab)^*(aa)(ba)^*) + ((ba)^*(bb)(ab)^*)$$
     \item All strings in which  the letter b is never tripled. This means no word contains the substring bbb.
+    $$ a^*(((b + bb)a)^*a^*) ^*(b + bb) $$
     \item All words in which a is tripled or b is tripled, but not both.
+    $$ (b^*(aaa)^*b^*) + (a^*(bbb)^*a^*)  $$
 \end{enumerate}
 		
 
 \newpage
-\item \textbf{If the only difference between L and L* is the word $\epsilon$, is the only difference between L2 and L* the word $\epsilon$? Prove or disprove.}
+\item \textbf{If the only difference between $L$ and $L*$ is the word $\epsilon$, is the only difference between $L^2$ and $L*$ the word $\epsilon$? Prove or disprove.}
 Note: $ L^2$ is the language consisting of words that are any word in $L$ concatenated with any word in $L$. $L*$ is the language of zero or more words from $L$ all concatenated (in any order, and any word may be used any number of times).
-
+\\\\
+Yes.  $L \subseteq L^*$ and $L \subseteq L^2$  so $L^2 \subseteq L^*$ 
 
 \newpage
 \item \textbf{Describe, in English, the languages defined by the following regular expressions:}
