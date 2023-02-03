@@ -41,9 +41,9 @@ Yes.  $L = L\kleene - \epsilon$ and $L \subseteq L^2$  so $L^2 = L\kleene  - \ep
   \item $(a(aa)\kleene b(bb)\kleene)\kleene$
   \\ Either nothing or any number of groups of at least one $a$ and at least one $b$
   \item $(b(bb)\kleene)\kleene(a(aa)\kleene b(bb)\kleene)\kleene$
-  \\ 
+  \\  Any combination of $a$s and $b$s
   \item $(b(bb)\kleene)\kleene(a(aa)\kleene b(bb)\kleene)\kleene(a(aa)\kleene)\kleene$
-  \\ 
+  \\  Any combination of $a$s and $b$s
   \item $((a+b)a)\kleene$
   \\ Nothing or any number of groupings of $a$'s or $b$'s and an $a$
 \end{enumerate}
@@ -64,7 +64,7 @@ Yes.  $L = L\kleene - \epsilon$ and $L \subseteq L^2$  so $L^2 = L\kleene  - \ep
   \\
   Definition: 
   \begin{itemize}
-  	\item Finite set of States: $Q = \{1,2,3,4,5\}$
+  	\item Finite set of States: $Q = \{1,2,3,4,5, 6\}$
   	  	\item Finite set of Symbols in the Language: $\Sigma = \{a,b\}$
   	  	  	\item Transition Function: $\delta$
   	  	  	  	\item Initial State: $\{1\}$
@@ -78,11 +78,14 @@ Yes.  $L = L\kleene - \epsilon$ and $L \subseteq L^2$  so $L^2 = L\kleene  - \ep
   	\node[state, right of=q2] (q3) {$q_3$};
   	\node[state, right of=q3] (q4) {$q_4$};
   	\node[state, accepting, right of=q4] (q5) {$q_5$};
+    \node[state, below of=q5] (q6) {$q_6$};
   	\draw
   	(q1) edge[above] node{a,b} (q2)
   	(q2) edge[above] node{a,b} (q3)
   	(q3) edge[above] node{a,b} (q4)
 	 (q4) edge[above] node{a,b} (q5)
+	 (q5) edge[above] node{a,b} (q6)
+	(q6) edge[loop left] node{a,b} (q6)
   	;
   \end{tikzpicture}
 
@@ -123,7 +126,7 @@ Yes.  $L = L\kleene - \epsilon$ and $L \subseteq L^2$  so $L^2 = L\kleene  - \ep
   \\
     Definition: 
   \begin{itemize}
-  	\item Finite set of States: $Q = \{1,2,3\}$
+  	\item Finite set of States: $Q = \{1,2,3,4\}$
   	\item Finite set of Symbols in the Language: $\Sigma = \{a,b\}$
   	\item Transition Function: $\delta$
   	\item Initial State: $\{1\}$
@@ -135,12 +138,18 @@ Yes.  $L = L\kleene - \epsilon$ and $L \subseteq L^2$  so $L^2 = L\kleene  - \ep
 	\node[state, initial] (q1) {$q_1$};
 	\node[state, accepting, above right of=q1] (q2) {$q_2$};
 	\node[state, accepting, below right of=q1] (q3) {$q_3$};
+		\node[state, right of=q1] (q4) {$q_4$};
 	\draw
 
 	(q1) edge[above] node{a} (q2)
 		(q1) edge[above] node{b} (q3)
 	(q2) edge[loop above] node{a} (q2)
 	(q3) edge[loop below] node{b} (q3)
+
+		(q2) edge[above] node{b} (q4)
+		(q3) edge[above] node{a} (q4)
+	
+		(q4) edge[loop right] node{a,b} (q3)
 	;
 \end{tikzpicture}
 \end{enumerate}
@@ -150,8 +159,20 @@ Yes.  $L = L\kleene - \epsilon$ and $L \subseteq L^2$  so $L^2 = L\kleene  - \ep
 \item \textbf{One of the defining properties of regular languages is that they're recognized by DFAs.}
 \begin{enumerate}
   \item Write "every regular language can be recognized by some DFA" as a first-order formula, and find its complement, contrapositive, and dual. Express each of these as both a first-order formula and a written description in English. Hint: for this example, you can treat "can be recognized by some DFA" as a simple predicate.
+  \\
+  \\ Let $L(x)$ be "$x$ is a Regular Language
+  \\ Let $R(x)$ be "$x$ can be recognized by some DFA
+  \begin{itemize}
+  	\item Statement:  $\forall x ( L(x) \implies R(x))$
+  	\item Negation: $\neg \forall x ( L(x) \implies R(x))$ 
+   	\item Contrapositive: $\forall x ( \neg R(x) \implies \neg L(x))$
+   	\item Dual: $\neg \exists x \neg ( L(x) \implies R(x))$ or $\neg \exists x (L(x)) \wedge \neg R(x))$
+  \end{itemize}
   \item What can we infer about nonregular languages from this?
+  \\\\
+  Non-regular languages may or may not be recognizable by a DFA
   \item What if we didn't treat "can be recognized by some DFA" as a predicate, but instead wrote it as its own expression in first-order logic?
+  \\ \\ Are you saying there are predicated hidden in "can be recognized by some DFA"?
 \end{enumerate}
 		
 \end{enumerate}
