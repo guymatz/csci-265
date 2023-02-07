@@ -1,0 +1,131 @@
+\input{header.tex}
+
+\begin{enumerate}
+
+\item \textbf{Concisely describe (in English) the languages accepted by the following DFAs:}
+
+\begin{enumerate}
+    \item
+
+  \begin{tikzpicture}
+      \node[state, initial] (q1) {$q_1$};
+      \node[state, right of=q1] (q2) {$q_2$};
+      \node[state, right of=q2] (q3) {$q_3$};
+      \node[state, right of=q3] (q4) {$q_4$};
+      \node[state, accepting, right of=q4] (q5) {$q_5$};
+    \node[state, below of=q5] (q6) {$q_6$};
+      \draw
+      (q1) edge[above] node{a,b} (q2)
+      (q2) edge[above] node{a,b} (q3)
+      (q3) edge[above] node{a,b} (q4)
+     (q4) edge[above] node{a,b} (q5)
+     (q5) edge[above] node{a,b} (q6)
+    (q6) edge[loop left] node{a,b} (q6)
+      ;
+  \end{tikzpicture}
+    \item
+
+  \begin{tikzpicture}
+      \node[state, initial] (q1) {$q_1$};
+      \node[state, right of=q1] (q2) {$q_2$};
+      \node[state, right of=q2] (q3) {$q_3$};
+      \node[state, right of=q3] (q4) {$q_4$};
+      \node[state, accepting, right of=q4] (q5) {$q_5$};
+    \node[state, below of=q5] (q6) {$q_6$};
+      \draw
+      (q1) edge[above] node{a,b} (q2)
+      (q2) edge[above] node{a,b} (q3)
+      (q3) edge[above] node{a,b} (q4)
+     (q4) edge[above] node{a,b} (q5)
+     (q5) edge[above] node{a,b} (q6)
+    (q6) edge[loop left] node{a,b} (q6)
+      ;
+  \end{tikzpicture}
+\end{enumerate}
+
+
+\item \textbf{Minimize the following DFAs:}
+
+\begin{enumerate}
+    \item
+
+  \begin{tikzpicture}
+      \node[state, initial] (q1) {$q_1$};
+      \node[state, right of=q1] (q2) {$q_2$};
+      \node[state, right of=q2] (q3) {$q_3$};
+      \node[state, right of=q3] (q4) {$q_4$};
+      \node[state, accepting, right of=q4] (q5) {$q_5$};
+    \node[state, below of=q5] (q6) {$q_6$};
+      \draw
+      (q1) edge[above] node{a,b} (q2)
+      (q2) edge[above] node{a,b} (q3)
+      (q3) edge[above] node{a,b} (q4)
+     (q4) edge[above] node{a,b} (q5)
+     (q5) edge[above] node{a,b} (q6)
+    (q6) edge[loop left] node{a,b} (q6)
+      ;
+  \end{tikzpicture}
+    \item
+
+  \begin{tikzpicture}
+      \node[state, initial] (q1) {$q_1$};
+      \node[state, right of=q1] (q2) {$q_2$};
+      \node[state, right of=q2] (q3) {$q_3$};
+      \node[state, right of=q3] (q4) {$q_4$};
+      \node[state, accepting, right of=q4] (q5) {$q_5$};
+    \node[state, below of=q5] (q6) {$q_6$};
+      \draw
+      (q1) edge[above] node{a,b} (q2)
+      (q2) edge[above] node{a,b} (q3)
+      (q3) edge[above] node{a,b} (q4)
+     (q4) edge[above] node{a,b} (q5)
+     (q5) edge[above] node{a,b} (q6)
+    (q6) edge[loop left] node{a,b} (q6)
+      ;
+  \end{tikzpicture}
+\end{enumerate}
+
+\newpage
+\item \textbf{When dealing with strings, exponents denote repetition. For
+  example, $a^2=aa$, $a^3=aaa$, $a^n= n a$'s.  Construct a DFA over
+  $\{a,b\}$ that recognizes the language of all words ending in $a^xb^y$,
+  where $x$ and $y$ are both odd. (Assume that $a^x$ includes the entire group
+  of $a$'s.  For example, $aaaa$ can only be counted as $a^4$, and not as a
+  single '$a$' followed by $a^3$). Minimize your DFA or ensure that it's
+  already minimal.}
+\\\\
+
+
+\newpage
+\item \textbf{Write a regular expression that defines the language over
+  $\{a,b,c\}$, consisting of all words that begin and end in a double ‘$c$’, contain at least one letter between the starting double ‘$c$’ and the ending double ‘$c$’, where $b$’s must occur in groups of 2  or more, and each group of $b$’s must be preceded by an ‘$a$’.}
+\\\\
+
+\newpage
+\item \textbf{Write a regular expression that defines the language over
+  ${a,b,c}$, consisting of all words in which $c$'s can only occur when an odd
+  number of $a$'s have been seen up to that point. So $c$'s can occur between the 1st and 2nd $a$'s, and between the 3rd and 4th $a$'s, but not between the 2nd and 3rd $a$'s (and so on).}
+\\\\
+
+
+\newpage
+\item \textbf{Proofs: provide an argument for each answer. Make it as
+  proof-like as you can.}
+\begin{enumerate}
+  \item For two regular languages $L1$ and $L2$, is $L1L2$ a proper subset of
+    $L1$ always, sometimes, or never?
+  \item Prove or disprove (true or false): The regular expression $(a+b)*c$
+    describes the language consisting of all words which end in "$c$".
+\end{enumerate}
+
+\newpage
+\item \textbf{Exercise 2.2.6a (p. 54) - Keep in mind that when reading binary
+  from left to right, each additional bit multiplies the value of the
+  previously seen bits by 2, and then may add 1 or not. Use this to your
+  advantage, while keeping track of the number's value mod 5.}
+\\\\
+
+
+\end{enumerate}
+
+\input{footer.tex}
