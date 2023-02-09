@@ -5,7 +5,7 @@
 \item \textbf{Concisely describe (in English) the languages accepted by the following DFAs:}
 
 \begin{enumerate}
-    \item
+    \item Words ending in two or more $a$'s or $b$'s
 
   \begin{tikzpicture}
       \node[state, initial] (q1) {$q_1$};
@@ -30,7 +30,7 @@
       (q4) edge[loop] node{b} (q4)
       ;
   \end{tikzpicture}
-    \item
+    \item Odd number of $aaa*$
 
   \begin{tikzpicture}
       \node[state, initial] (q1) {$q_1$};
@@ -64,38 +64,79 @@
 
   \begin{tikzpicture}
       \node[state, initial] (q1) {$q_1$};
-      \node[state, right of=q1] (q2) {$q_2$};
-      \node[state, right of=q2] (q3) {$q_3$};
-      \node[state, right of=q3] (q4) {$q_4$};
-      \node[state, accepting, right of=q4] (q5) {$q_5$};
-    \node[state, below of=q5] (q6) {$q_6$};
+      \node[state, above right of=q1] (q2) {$q_2$};
+      \node[state, below right of=q1] (q3) {$q_3$};
+      \node[state, accepting, right of=q2] (q4) {$q_4$};
+      \node[state, right of=q3] (q5) {$q_5$};
       \draw
-      (q1) edge[above] node{a,b} (q2)
-      (q2) edge[above] node{a,b} (q3)
-      (q3) edge[above] node{a,b} (q4)
-     (q4) edge[above] node{a,b} (q5)
-     (q5) edge[above] node{a,b} (q6)
-    (q6) edge[loop left] node{a,b} (q6)
+      (q1) edge[bend left] node{a} (q2)
+      (q2) edge[bend left] node{a} (q1)
+      (q1) edge[bend left] node{b} (q3)
+      (q3) edge[bend left] node{b} (q1)
+      (q3) edge[bend right] node{a} (q2)
+      
+      (q2) edge[above] node{b} (q4)
+      (q5) edge[below] node{a} (q3)
+      
+      (q4) edge[bend left] node{a,b} (q5)
+      (q5) edge[bend left] node{a} (q4)
+      
       ;
   \end{tikzpicture}
+
+\begin{table}[]
+	\begin{tabular}{|c|c|c|c|c|c}
+		\hline
+		&  5 &  4 & 3  &   2 \\ \hline
+		1 &  &  &  \\ 
+		2  &  &  &  \\ \hline
+		3  &  &  &  \\ \hline
+		4  &  &  &  \\ \hline
+	\end{tabular}
+\end{table}
+
     \item
 
   \begin{tikzpicture}
-      \node[state, initial] (q1) {$q_1$};
-      \node[state, right of=q1] (q2) {$q_2$};
-      \node[state, right of=q2] (q3) {$q_3$};
-      \node[state, right of=q3] (q4) {$q_4$};
-      \node[state, accepting, right of=q4] (q5) {$q_5$};
-    \node[state, below of=q5] (q6) {$q_6$};
-      \draw
-      (q1) edge[above] node{a,b} (q2)
-      (q2) edge[above] node{a,b} (q3)
-      (q3) edge[above] node{a,b} (q4)
-     (q4) edge[above] node{a,b} (q5)
-     (q5) edge[above] node{a,b} (q6)
-    (q6) edge[loop left] node{a,b} (q6)
+    \node[state, initial] (q1) {$q_1$};
+	\node[state, below of=q1] (q2) {$q_2$};
+	\node[state, accepting, right of=q1] (q3) {$q_3$};
+	\node[state, right of=q2] (q4) {$q_4$};
+	\node[state, accepting, right of=q3] (q5) {$q_5$};
+	\node[state, below of=q5] (q6) {$q_6$};
+	\draw
+	(q1) edge[] node{b} (q3)
+	(q3) edge[bend left] node{b} (q5)
+	(q5) edge[bend left] node{b} (q3)
+	
+	(q5) edge[] node{a} (q6)
+
+(q6) edge[bend left] node{a} (q4)
+(q4) edge[bend left] node{a} (q6)
+(q6) edge[bend left] node{b} (q2)
+
+(q3) edge[] node{a} (q4)
+(q4) edge[] node{b} (q2)
+
+(q2) edge[] node{b} (q3)
+
+	(q2) edge[bend left] node{a} (q1)
+	(q1) edge[bend left] node{a} (q2)
       ;
   \end{tikzpicture}
+
+\begin{table}[]
+	\begin{tabular}{|c|c|c|c|c|c|c}
+		\hline
+		&  6 & 5 &  4 & 3  &   2 \\ \hline
+		1 &  &  &  &  \\ \hline
+		2  &  &  &  & \\ \hline
+		3  &  &  &  & \\ \hline
+		4  &  &  &  & \\ \hline
+        5  &  &  &  & \\ \hline
+	\end{tabular}
+\end{table}
+
 \end{enumerate}
 
 \newpage
