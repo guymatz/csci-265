@@ -182,20 +182,68 @@ Minimizes to:
   single '$a$' followed by $a^3$). Minimize your DFA or ensure that it's
   already minimal.}
 \\\\
+  \begin{tikzpicture}
+	\node[state, initial] (q1) {$q_1$};
 
+	\node[state, above right of=q1] (q3) {$q_3$};
+	\node[state, above of=q3] (q2) {$q_2$};
+
+	\node[state, below right of=q1] (q4) {$q_4$};
+	\node[state, below of=q4] (q5) {$q_5$};
+	
+	\node[state,  right of=q3] (q8) {$q_8$};
+    \node[state, above of=q8] (q6) {$q_6$};
+
+	\node[state, right of=q4] (q9) {$q_9$};
+	\node[state, below of=q9] (q7) {$q_7$};
+
+	\draw
+	(q1) edge[bend left] node{a} (q3)
+	(q1) edge[bend right] node{b} (q4)
+
+	(q2) edge[bend right] node{a} (q3)
+	(q3) edge[bend right] node{a} (q2)	
+	
+	(q3) edge[] node{b} (q8)	
+	(q4) edge[] node{a} (q9)	
+	
+	(q4) edge[bend right] node{b} (q5)
+	(q5) edge[bend right] node{b} (q4)	
+
+
+	(q2) edge[above] node{b} (q8)
+	(q6) edge[below] node{b} (q3)	
+
+
+	(q6) edge[bend right] node{b} (q8)
+	(q8) edge[bend right] node{b} (q6)	
+
+
+	(q7) edge[above] node{a} (q4)
+	(q5) edge[below] node{a} (q9)	
+
+	(q9) edge[bend right] node{b} (q8)
+	(q8) edge[bend right] node{a} (q9)	
+
+
+	(q7) edge[bend right] node{a} (q9)
+	(q9) edge[bend right] node{a} (q7)	
+	
+	;
+\end{tikzpicture}
 
 \newpage
 \item \textbf{Write a regular expression that defines the language over
   $\{a,b,c\}$, consisting of all words that begin and end in a double ‘$c$’, contain at least one letter between the starting double ‘$c$’ and the ending double ‘$c$’, where $b$’s must occur in groups of 2  or more, and each group of $b$’s must be preceded by an ‘$a$’.}
 \\\\
-
+$$cc (a + abbb\kleene + c) (a + abbb\kleene + c)\kleene  cc$$
 \newpage
 \item \textbf{Write a regular expression that defines the language over
   ${a,b,c}$, consisting of all words in which $c$'s can only occur when an odd
   number of $a$'s have been seen up to that point. So $c$'s can occur between the 1st and 2nd $a$'s, and between the 3rd and 4th $a$'s, but not between the 2nd and 3rd $a$'s (and so on).}
 \\\\
 
-
+$$  b\kleene (a(aa)\kleene (b + c)\kleene )\kleene $$
 \newpage
 \item \textbf{Proofs: provide an argument for each answer. Make it as
   proof-like as you can.}
@@ -211,7 +259,12 @@ Minimizes to:
   from left to right, each additional bit multiplies the value of the
   previously seen bits by 2, and then may add 1 or not. Use this to your
   advantage, while keeping track of the number's value mod 5.}
+\\\\\textbf{Give DFA's accepting the following languages over the alphabet $\{0,1\}$}
+\\\\ The set of all strings beginning with a $1$ that, when interpreted as a binary integer, is a 
+multiple of 5.  For example, strings $101$, $1010$, and $1111$ are in the language; $0$, $100$
+and $111$ are not.
 \\\\
+I don't know!  I don't se any patterns here!!
 
 
 \end{enumerate}
