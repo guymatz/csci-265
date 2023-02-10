@@ -250,8 +250,13 @@ $$  b\kleene (a(aa)\kleene (b + c)\kleene )\kleene $$
 \begin{enumerate}
   \item For two regular languages $L1$ and $L2$, is $L1L2$ a proper subset of
     $L1$ always, sometimes, or never?
+    \\\\
+    $L1L2$ is never a proper subset of $L1$ since $L1L2$ is always as least as "big" as $L1$.   Unless
+    $L2$ is $\emptyset$ . . ?  Is that possible?  If so, then $L1L2 = \{\}$, in which case, yes $L1L2 \subset L1$ 
   \item Prove or disprove (true or false): The regular expression $(a+b)\kleene c$
     describes the language consisting of all words which end in "$c$".
+    \\\\
+    False.  The word "$cc$ ends in $c$ but is \textbf{not} covered by this Regular Expression.
 \end{enumerate}
 
 \newpage
