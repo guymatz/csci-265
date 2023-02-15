@@ -1,0 +1,58 @@
+\input{header.tex}
+
+\begin{enumerate}
+
+\item \textbf{For the language $L$ over $\{a,b,c\}$ defined by the regular expression $(a+b)*(b+c)*(c+a)*$}
+
+\begin{enumerate}
+    \item Find the shortest word not in $L$.
+    \item Draw an $\epsilon$NFA that accepts $L$ informally (without using Thompson's Construction Algorithm).
+    \item Draw a DFA that accepts $L$.
+
+\end{enumerate}
+
+\newpage
+
+\item \textbf{Convert the following to $\epsilon$NFAs, where $S1$, $S2$, and
+    $S3$ are regular expressions that may be represented by a single
+    transition from the start state to the sole accepting state of an
+    $\epsilon$NFA that recognizes them (this means you may treat them like
+    single letters as long as you use Thompson's Construction Algorithm correctly).}
+
+\begin{enumerate}
+    \item $S_1 S_2 S_3$
+    \item $S_1 S_2 \kleene S_3$
+    \item $S_1 + S_2$
+
+\end{enumerate}
+
+\newpage
+
+\item \textbf{Draw out the NFA from question 2 part b fully,
+    using:  $S_1 = ab+ba$;  $S_2 = aa+b(bb)\kleene$ ;
+    $S3 = b*(a+ɛ)$.}
+
+
+\newpage
+\item \textbf{Prove or disprove each of the following:}
+
+\begin{enumerate}
+    \item $L1 = \{ab, aab, bbb, aabaa\}$ is regular.
+    \item Every finite language is regular. Hint: Consider the explicit definition of a set. Apply that to finite languages, and write a constructive proof that creates a regular expression for any given finite language that is expressed explicitly.
+
+\end{enumerate}
+
+\newpage
+\item \textbf{Write "every finite language is regular" as a first-order formula, and find its complement, contrapositive, and dual. Express each of those as both a first-order formula and a written description in English.}
+
+
+\newpage
+\item \textbf{Explain why Thompson's Construction Algorithm is considered to be a proof by induction. Hint: consider what the inductive steps and base cases are. What does Thompson's Construction Algorithm prove?}
+
+
+\newpage
+\item \textbf{Construct both an NFA and a DFA which will recognize the language over $\{a,b\}$ consisting of all words where the third to last letter is "$b$" (meaning the letter two before the last letter). Then minimize your DFA (or confirm that it is already minimal).}
+
+\end{enumerate}
+
+\input{footer.tex}
