@@ -2,10 +2,11 @@
 
 \begin{enumerate}
 
-\item \textbf{For the language $L$ over $\{a,b,c\}$ defined by the regular expression $(a+b)*(b+c)*(c+a)*$}
+\item \textbf{For the language $L$ over $\{a,b,c\}$ defined by the regular expression} $$(a+b)\kleene(b+c)\kleene(c+a)\kleene$$
 
 \begin{enumerate}
     \item Find the shortest word not in $L$.
+    $$cab$$
     \item Draw an $\epsilon$NFA that accepts $L$ informally (without using Thompson's Construction Algorithm).
     \item Draw a DFA that accepts $L$.
 
@@ -30,7 +31,7 @@
 
 \item \textbf{Draw out the NFA from question 2 part b fully,
     using:  $S_1 = ab+ba$;  $S_2 = aa+b(bb)\kleene$ ;
-    $S3 = b*(a+ɛ)$.}
+    $S3 = b\kleene (a+ \epsilon)$.}
 
 
 \newpage
