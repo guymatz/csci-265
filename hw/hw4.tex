@@ -8,7 +8,24 @@
     \item Find the shortest word not in $L$.
     $$cab$$
     \item Draw an $\epsilon$NFA that accepts $L$ informally (without using Thompson's Construction Algorithm).
+\\  I don't think I lnow how to do this without Thompson's algorithm
+    
     \item Draw a DFA that accepts $L$.
+
+          \begin{tikzpicture}
+	\node[state, accepting, initial] (q1) {$q_1$};
+	\node[state, accepting, right of=q1] (q2) {$q_2$};
+	\node[state, accepting, right of=q2] (q3) {$q_3$};
+	\draw
+	
+	(q1) edge[above] node{b} (q2)    	
+	(q2) edge[above] node{a} (q3)
+	
+	(q1) edge[loop above] node{a,b} (q1)
+	(q2) edge[loop above] node{b,c} (q2)    	
+	(q3) edge[loop above] node{a,c} (q3)
+	;
+\end{tikzpicture}
 
 \end{enumerate}
 
@@ -22,29 +39,113 @@
 
 \begin{enumerate}
     \item $S_1 S_2 S_3$
+        \begin{tikzpicture}
+	\node[state, initial] (q1) {$q_1$};
+	\node[state,  right of=q1] (s1) {$S_1$};
+	\node[state,  right of=s1] (s2) {$S_2$};
+	\node[state,  right of=s2] (s3) {$S_3$};
+	\node[state, accepting, right of=s3] (q2) {$q_2$};
+	\draw
+	
+	(q1) edge[above] node{$\epsilon$} (s1)
+	(s1) edge[above] node{$\epsilon$} (s2)
+	(s2) edge[above] node{$\epsilon$} (s3)
+	(s3) edge[above] node{$\epsilon$} (q2)
+	
+	;
+\end{tikzpicture}
+
+
     \item $S_1 S_2 \kleene S_3$
+    
+        \begin{tikzpicture}
+	\node[state, initial] (q1) {$q_1$};
+	\node[state,  right of=q1] (s1) {$S_1$};
+	\node[state,  right of=s1] (s2) {$S_2$};
+	\node[state,  right of=s2] (s3) {$S_3$};
+	\node[state, accepting, right of=s3] (q2) {$q_2$};
+	\draw
+	
+	(q1) edge[above] node{$\epsilon$} (s1)
+	(s1) edge[above] node{$\epsilon$} (s2)
+	
+	(s2) edge[loop above] node{$\epsilon$} (s2)
+	(s3) edge[bend left, below] node{$\epsilon$} (s1)
+	(s2) edge[above] node{$\epsilon$} (s3)
+	(s3) edge[above] node{$\epsilon$} (q2)
+	
+	;
+\end{tikzpicture}
+
+
     \item $S_1 + S_2$
+    
+                  \begin{tikzpicture}
+    	\node[state, initial] (q1) {$q_1$};
+    	\node[state, above right of=q1] (s1) {$S_1$};
+    	\node[state, below right of=q1] (s2) {$S_2$};
+    	\node[state, accepting, above right of=s2] (q2) {$q_2$};
+    	\draw
+    	
+    	(q1) edge[above] node{$\epsilon$} (s1)    	
+    	(q1) edge[below] node{$\epsilon$} (s2)    	
+
+    	(s1) edge[above] node{$\epsilon$} (q2)    	
+        (s2) edge[below] node{$\epsilon$} (q2)    	
+
+    	;
+    \end{tikzpicture}
 
 \end{enumerate}
 
 \newpage
 
 \item \textbf{Draw out the NFA from question 2 part b fully,
-    using:  $S_1 = ab+ba$;  $S_2 = aa+b(bb)\kleene$ ;
-    $S3 = b\kleene (a+ \epsilon)$.}
-
+    using:}
+     $$S_1 = ab+ba;  S_2 = aa+b(bb)\kleene ;S3 = b\kleene (a+ \epsilon)$$
+\\\\
+        \begin{tikzpicture}
+	\node[state, initial] (q1) {$q_1$};
+	\node[state,  right of=q1] (s1) {$ab + ba$};
+	\node[state,  right of=s1] (s2) {$aa + b(bb)\kleene$};
+	\node[state,  right of=s2] (s3) {$b\kleene (a + \epsilon)$};
+	\node[state, accepting, right of=s3] (q2) {$q_2$};
+	\draw
+	
+	(q1) edge[above] node{$\epsilon$} (s1)
+	(s1) edge[above] node{$\epsilon$} (s2)
+	
+	(s2) edge[loop above] node{$\epsilon$} (s2)
+	(s3) edge[bend left, below] node{$\epsilon$} (s1)
+	(s2) edge[above] node{$\epsilon$} (s3)
+	(s3) edge[above] node{$\epsilon$} (q2)
+	
+	;
+\end{tikzpicture}
 
 \newpage
 \item \textbf{Prove or disprove each of the following:}
 
 \begin{enumerate}
     \item $L1 = \{ab, aab, bbb, aabaa\}$ is regular.
+    \\\\ All finite languages are regular, and since $L1$ is finite it is regular.
+    \\
     \item Every finite language is regular. Hint: Consider the explicit definition of a set. Apply that to finite languages, and write a constructive proof that creates a regular expression for any given finite language that is expressed explicitly.
 
 \end{enumerate}
 
 \newpage
 \item \textbf{Write "every finite language is regular" as a first-order formula, and find its complement, contrapositive, and dual. Express each of those as both a first-order formula and a written description in English.}
+\\\\Let $R(x)$ be "$x$ Regular Language", and let $F(x)$ be "$x$ is a Finite Language" and let $L$ be the set of all Languages
+\begin{itemize}
+	\item All Finite languages are Regular
+		$$\forall x \in L \, F(x) \implies R(x)$$
+	\item All non-Regular Languages are not Finite
+		$$\forall x \in L \, \neg R(x) \implies \neg F(x)$$
+	\item There are no Languages that are Regular but not Finite
+		$$\neg \exists x \in L  \, ( R(x) \wedge \neg F(x) )$$
+		
+\end{itemize}
 
 
 \newpage
@@ -53,6 +154,8 @@
 
 \newpage
 \item \textbf{Construct both an NFA and a DFA which will recognize the language over $\{a,b\}$ consisting of all words where the third to last letter is "$b$" (meaning the letter two before the last letter). Then minimize your DFA (or confirm that it is already minimal).}
+\\\\
+$$(a + b) \kleene b (a + b) (a + b)$$
 
 \end{enumerate}
 
