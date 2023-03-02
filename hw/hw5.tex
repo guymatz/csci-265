@@ -188,7 +188,8 @@ $$ a \kleene \left( ba b \kleene a \kleene \right) \kleene $$
 2.4.1 asks you go convert the sets of strings to NFAs, not $\epsilon$-NFAs. So while you can easily write regular expressions for them, you can't then use Thompson's Construction exactly -  but you can use the same ideas.
 \begin{enumerate}
 	\item \textbf{Convert the following NFA to a DFA}
-	\begin{table}[]
+	\begin{table}[H]
+						\centering
 		\begin{tabular}{c||c|c}
 			 &  0 &  1   \\ \hline
 			p& $\{p,q\}$ &  $\{p\}$   \\ \hline
@@ -205,9 +206,10 @@ $$ a \kleene \left( ba b \kleene a \kleene \right) \kleene $$
 			\item ab, bc, and ca 
 		\end{enumerate}
 
-	\item \textbf{Conside the following $\epsilon$-NFA}
-	
-		\begin{table}[]
+	\item \textbf{Consider the following $\epsilon$-NFA}
+
+		\begin{table}[H]
+				\centering
 		\begin{tabular}{c||c|c|c|c}
 			&  $\epsilon$ &  a   & b & c\\ \hline
 			p&  $\emptyset$ &  $\{p\}$  & $\{q\}$& $\{r\}$ \\ \hline
