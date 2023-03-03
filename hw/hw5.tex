@@ -182,7 +182,7 @@ $$ a \kleene \left( ba b \kleene a \kleene \right) \kleene $$
 \item \textbf{Using the techniques from the last 2 problems, create a DFA that recognizes the language of all words that have an odd number of $a$'s and don't end in $ab$.}
 \\\\
 
-\begin{figure}
+\begin{figure}[h]
 	\centering
 	\caption{Words with an odd Number of $a$'s:}
 	  \begin{tikzpicture}
@@ -199,7 +199,7 @@ $$ a \kleene \left( ba b \kleene a \kleene \right) \kleene $$
 \end{tikzpicture}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[h]
 \centering
 \caption{Words that end in $ab$}
 \begin{tikzpicture}[object/.style={thin,double,<->}]
@@ -276,14 +276,45 @@ $$ a \kleene \left( ba b \kleene a \kleene \right) \kleene $$
 			 &  0 &  1   \\ \hline
 			p& $\{p,q\}$ &  $\{p\}$   \\ \hline
 			q&  $\{r\}$& $\{r\}$   \\ \hline
-			r&  $\{r\}$& $\emptyset$   \\ \hline
+			r&  $\{s\}$& $\emptyset$   \\ \hline
 			$\kleene s$& $\{s\}$ & $\{s\}$ \\ \hline
 		\end{tabular}
 	\end{table}
 
+\begin{figure}[h]
+	\centering
+	%\caption{Words with an odd Number of $a$'s:}
+	\begin{tikzpicture}
+		\node[state, initial] (p) {$p$};
+		\node[state, right of=p] (q) {$q$};
+		\node[state, right of=q] (r) {$r$};
+		\node[state, accepting, right of=r] (s) {$s$};
+		\draw
+		(p) edge[loop above] node{1} (p)
+		
+		(p) edge[above] node{0} (q)
+		(q) edge[above] node{0,1} (r)
+		(r) edge[above] node{1} (s)
+		(r) edge[loop above] node{0} (r)
+		(s) edge[loop above] node{0,1} (s)
+		;		
+	\end{tikzpicture}
+\end{figure}
+
 	\item \textbf{Design NFA's to to recognize the following sets of strings}
 		\begin{enumerate}
 			\item abc, abd,and aacd 
+				\begin{table}[H]
+				\centering
+				\begin{tabular}{c||c|c|c|c}
+					&  a &  b & c & d \\ \hline
+					p& $\{p,q\}$ &  $\emptyset$ & $\emptyset$ & $\emptyset$   \\ \hline
+					q&  $\emptyset$ & $\{r\}$& $\emptyset$ &  $\{r\}$   \\ \hline
+					r&  $\emptyset$&  $\emptyset$ & $\{s\}$& $\{s\}$  \\ \hline
+					$\kleene s$& $\{s\}$ & $\{s\}$ & $\{s\}$ & $\{s\}$ \\ \hline
+				\end{tabular}
+			\end{table}
+		
 			\item 0101, 101, and 011
 			\item ab, bc, and ca 
 		\end{enumerate}
