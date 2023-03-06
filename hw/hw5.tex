@@ -7,8 +7,8 @@
 
   \begin{tikzpicture}
       \node[state, initial] (q1) {$q_1$};
-      \node[state,  accepting, above right of=q1] (q2) {$q_2$};
-      \node[state, below right of=q1] (q3) {$q_3$};
+      \node[state,  above right of=q1] (q2) {$q_2$};
+      \node[state, accepting, below right of=q1] (q3) {$q_3$};
       \draw
     	(q1) edge[loop above] node{b} (q1)
       (q1) edge[above] node{$\epsilon$} (q2)
@@ -57,7 +57,7 @@ $$\left( b \kleene \left( ab \right) \kleene \right) \kleene $$
       ;
   \end{tikzpicture}
 
-$$ a \kleene \left( ba b \kleene a \kleene \right) \kleene $$
+$$ a \left( a\kleene b \left(  \left( a b \kleene \epsilon \right) + \left( b + \epsilon \right) a \right) \right) \kleene $$
 
 \newpage
 \item \textbf{Find the union and intersection of the 2 following DFAs:}
@@ -316,6 +316,7 @@ $$ a \kleene \left( ba b \kleene a \kleene \right) \kleene $$
 			\end{table}
 		
 			\item 0101, 101, and 011
+			\\ I'm not sure I understand what to do here
 			\item ab, bc, and ca 
 		\end{enumerate}
 
@@ -333,6 +334,7 @@ $$ a \kleene \left( ba b \kleene a \kleene \right) \kleene $$
 
 			\begin{enumerate}
 		\item abc, abd,and aacd 
+					\\ I'm not sure I understand what to do here
 		\item 0101, 101, and 011
 		\item ab, bc, and ca 
 	\end{enumerate}
