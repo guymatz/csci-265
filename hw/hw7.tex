@@ -4,51 +4,229 @@
 
 \item \textbf{Use the Pumping Lemma to prove that the following languages are nonregular:}
 
+Pumping Lemma:
+For Every regular language $L$\\
+There Exists a constant $n$\\
+For Every  string $w$ in $L$ such that $|w| \geq n$,\\
+There Exists a way to break up $w$ into three strings $w=xyz$ such that $|y|>0$, $|wy| \leq n$ and \\
+For Every $k \geq 0$, the sting $xy^kz$ is also in  $L$.\\
 \begin{enumerate}
 	\item $L = \{a^ib^j a^i | i , j >=0\}$
 	
+	\begin{itemize}
+		\item 	Assume that $L$ is regular with $n$ states.  	
+		\item Let $w = a^nba^n$ where $w \in L$ with $i=n, j=1$ Thus $|w| = 2n + 1 \geq n$.
+		
+		\item Let $w = xyz$, where $|xy| \leq n$ and $|y| > 0$.
+		
+		\item By pumping lemma we must be able to break up $a^nba^n$ into 3 substrings, $xyz$, with $xy \leq n$ and $|y| > 0$, such that $xy^pz$ must also be in the language $a^ib^ja^i$ for any $p \geq 0$
+		
+		\item Let $p = 2$. Then $xy^2z = a^mba^n$, where $m = n + |y|$.  And because $|y| > 0$. $m>n$
+		
+		\item Then $a^mb^n$ is not in the language $a^ib^ja^i$
+		
+		\item This contradicts the Pumping Lemma and thus disproves our initial assumption that $a^ib^ja^i$ is regular
+	
+	\end{itemize}
+
 	\item $L = \{a^ib^ja^j | i , j >=0\}$ 
+		\begin{itemize}
+		\item 	Assume that $L$ is regular with $n$ states.  	
+		\item Let $w = b^na^n$ where $w \in L$ with $i=0, j=n$ Thus $|w| = 2n  \geq n$.
+		
+		\item Let $w = xyz$, where $|xy| \leq n$ and $|y| > 0$.
+		
+		\item By pumping lemma we must be able to break up $b^na^n$ into 3 substrings, $xyz$, with $xy \leq n$ and $|y| > 0$, such that $xy^pz$ must also be in the language $a^ib^ja^j$ for any $p \geq 0$
+		
+		\item Let $p = 2$. Then $xy^2z = b^ma^n$, where $m = n + |y|$.  And because $|y| > 0$. $m>n$
+		
+		\item Then $b^ma^n$ is not in the language $a^ib^ja^j$
+		
+		\item This contradicts the Pumping Lemma and thus disproves our initial assumption that $a^ib^ja^j$ is regular
+		
+	\end{itemize}
 	
 	\item $L = \{a^ib^ja^j | i , j >=1\}$
-	
+  	\begin{itemize}
+		\item 	Assume that $L$ is regular with $n$ states.  	
+		\item Let $w = a^nb^na^n$ where $w \in L$ with $i=n, j=n$ Thus $|w| = 3n  \geq n$.
+		
+		\item Let $w = xyz$, where $|xy| \leq n$ and $|y| > 0$.
+		
+		\item By pumping lemma we must be able to break up $a^nb^na^n$ into 3 substrings, $xyz$, with $xy \leq n$ and $|y| > 0$, such that $xy^pz$ must also be in the language $a^ib^ja^j$ for any $p \geq 0$
+		
+		\item Let $p = 2$. Then $xy^2z = a^mb^na^n$, where $m = n + |y|$.  And because $|y| > 0$. $m>n$
+		
+		\item Then $a^mb^na^n$ is not in the language $a^ib^ja^j$
+		
+		\item This contradicts the Pumping Lemma and thus disproves our initial assumption that $a^ib^ja^j$ is regular
+		
+	\end{itemize}
 	
 	\item The language consisting of all words which can be broken into the same string repeated twice, e.g., $abbabb$ or $baabbbaabb$
-	
+	  	\begin{itemize}
+		\item 	Assume that $L$ is regular with $n$ states.  	
+		\item Let $w = a^nba^nb$ where $w \in L$.  Thus $|w| = 2n + 2  \geq n$.
+		
+		\item Let $w = xyz$, where $|xy| \leq n$ and $|y| > 0$.
+		
+		\item By pumping lemma we must be able to break up $a^nba^nb$ into 3 substrings, $xyz$, with $xy \leq n$ and $|y| > 0$, such that $xy^pz$ must also be in the language, for any $p \geq 0$
+		
+		\item Let $p = 2$. Then $xy^2z = a^mba^nb$, where $m = n + |y|$.  And because $|y| > 0$. $m>n$
+		
+		\item Then $a^mb^na^nb$ is not in the language or double-words
+		
+		\item This contradicts the Pumping Lemma and thus disproves our initial assumption that $a^ib^ja^j$ is regular
+		
+	\end{itemize}
+
 	\item $(a+b)^ia^i$
+	
+	  	\begin{itemize}
+		\item 	Assume that $L$ is regular with $n$ states.  	
+		\item Let $w = b^na^n$ where $w \in L$ with $i=n, j=n$ Thus $|w| = 2n  \geq n$.
+		
+		\item Let $w = xyz$, where $|xy| \leq n$ and $|y| > 0$.
+		
+		\item By pumping lemma we must be able to break up $a^nb^na^n$ into 3 substrings, $xyz$, with $xy \leq n$ and $|y| > 0$, such that $xy^pz$ must also be in the language $(a + b)^ia^i$ for any $p \geq 0$
+		
+		\item Let $p = 2$. Then $xy^2z = b^ma^n$, where $m = n + |y|$.  And because $|y| > 0$. $m>n$
+		
+		\item Then $b^ma^n$ is not in the language $(a + b)^ia^i$
+		
+		\item This contradicts the Pumping Lemma and thus disproves our initial assumption that $(a + b)^ia^i$ is regular
+		
+	\end{itemize}
 \end{enumerate}
 
 \newpage
 \item \textbf{Explain why the pumping lemma won't work on the following languages (i.e., show where it fails - it's already obvious they're regular because the first 2 are finite and the last 2 are regular expressions)}
+\\
 
+Pumping Lemma:\\
+For Every regular language $L$\\
+There Exists a constant $n$\\
+For Every  string $w$ in $L$ such that $|w| \geq n$,\\
+There Exists a way to break up $w$ into three strings $w=xyz$ such that $|y|>0$, $|wy| \leq n$ and \\
+For Every $k \geq 0$, the sting $xy^kz$ is also in  $L$.\\
 \begin{enumerate}
 	\item The empty set
+	\\ No words exist to provide as a counter-example
 	
 	\item $\{00,11\}$
+	\\  Too short to guarantee length $n$
 	
 	\item $\{00+11\}\kleene$
-	
+	\\ All words are pumpable
 	\item $01\kleene 01 \kleene$
+		\\ All words are pumpable
 \end{enumerate}
 
 
 \newpage
 \item \textbf{Use the Myhill-Nerode theorem to determine if the language $(a+b)^i (b+c)^i$ is regular.:}
 \\\\
-
+For an infinite set of prefixes $S = \{a^n | n \text{ is a positive integer}\}$, and two members of this set, $a^x$ and $a^y$, $x \neq y$, are distinguished by the suffix $c^x$, because $a^xc^x$ is in the language but $a^yc^x$ is not.
 \newpage
 \item \textbf{Prove the following languages are nonregular, once using the pumping lemma and once using the Myhill-Nerode theorem}
 \\\\
 \begin{enumerate}
 	\item The language where the longest string of consecutive $a$'s is longer than the longest string of consecutive $b$'s
-	
+	\\Pumping Lemma
+		  	\begin{itemize}
+		\item 	Assume that $L$ is regular with $n$ states.  	
+		\item Let $w = b^na^{n+1}$.  Thus $|w| = 2n  + 1 \geq n$.
+		
+		\item Let $w = xyz$, where $|xy| \leq n$ and $|y| > 0$.
+		
+		\item By pumping lemma we must be able to break up $b^na^{n+1}$ into 3 substrings, $xyz$, with $xy \leq n$ and $|y| > 0$, such that $xy^pz$ must also be in the language for any $p \geq 0$
+		
+		\item Let $p = 2$. Then $xy^2z = b^ma^{n+1}$, where $m = 2n$.  And because $|n| > 1$. $m>n$
+		
+		\item Then $b^ma^{n+1}$ is not in the language
+		
+		\item This contradicts the Pumping Lemma and thus disproves our initial assumption that the language is regular
+		
+	\end{itemize}
+Myhill-Nerode\\
+Let prefixes be the set of $bb\kleene$.  Then, for each $b^i$ and $b^k$, where $ j < k$, $b^i$ may be finished by $a^{i+1}$ but $b^k$ may not, thus differentiating each of the infinite number off prefixes
+    
+    
 	\item $a^ib^jc^k$, where $k \leq i+j$
+	\\Pumping Lemma
+\begin{itemize}
+	\item 	Assume that $L$ is regular with $n$ states.  	
+	\item Let $w = b^na^n$ where $w \in L$ with $i=n, j=n$ Thus $|w| = 2n  \geq n$.
+	
+	\item Let $w = xyz$, where $|xy| \leq n$ and $|y| > 0$.
+	
+	\item By pumping lemma we must be able to break up $a^nb^na^n$ into 3 substrings, $xyz$, with $xy \leq n$ and $|y| > 0$, such that $xy^pz$ must also be in the language $(a + b)^ia^i$ for any $p \geq 0$
+	
+	\item Let $p = 2$. Then $xy^2z = b^ma^n$, where $m = n + |y|$.  And because $|y| > 0$. $m>n$
+	
+	\item Then $b^ma^n$ is not in the language $(a + b)^ia^i$
+	
+	\item This contradicts the Pumping Lemma and thus disproves our initial assumption that $(a + b)^ia^i$ is regular
+	
+\end{itemize}
+Myhill-Nerode\\
 	
 	\item $a^ib^jc^k$, where $i$ is neither the least nor greatest out of $i,j$, and $k$.
+	\\Pumping Lemma
+\begin{itemize}
+	\item 	Assume that $L$ is regular with $n$ states.  	
+	\item Let $w = b^na^n$ where $w \in L$ with $i=n, j=n$ Thus $|w| = 2n  \geq n$.
+	
+	\item Let $w = xyz$, where $|xy| \leq n$ and $|y| > 0$.
+	
+	\item By pumping lemma we must be able to break up $a^nb^na^n$ into 3 substrings, $xyz$, with $xy \leq n$ and $|y| > 0$, such that $xy^pz$ must also be in the language $(a + b)^ia^i$ for any $p \geq 0$
+	
+	\item Let $p = 2$. Then $xy^2z = b^ma^n$, where $m = n + |y|$.  And because $|y| > 0$. $m>n$
+	
+	\item Then $b^ma^n$ is not in the language $(a + b)^ia^i$
+	
+	\item This contradicts the Pumping Lemma and thus disproves our initial assumption that $(a + b)^ia^i$ is regular
+	
+\end{itemize}
+Myhill-Nerode\\
 	
 	\item The language consisting of all strings of $a$'s and $b$'s in which the total number of $a$'s is greater than the total number of $b$'s.
+	\\Pumping Lemma
+\begin{itemize}
+	\item 	Assume that $L$ is regular with $n$ states.  	
+	\item Let $w = b^na^n$ where $w \in L$ with $i=n, j=n$ Thus $|w| = 2n  \geq n$.
+	
+	\item Let $w = xyz$, where $|xy| \leq n$ and $|y| > 0$.
+	
+	\item By pumping lemma we must be able to break up $a^nb^na^n$ into 3 substrings, $xyz$, with $xy \leq n$ and $|y| > 0$, such that $xy^pz$ must also be in the language $(a + b)^ia^i$ for any $p \geq 0$
+	
+	\item Let $p = 2$. Then $xy^2z = b^ma^n$, where $m = n + |y|$.  And because $|y| > 0$. $m>n$
+	
+	\item Then $b^ma^n$ is not in the language $(a + b)^ia^i$
+	
+	\item This contradicts the Pumping Lemma and thus disproves our initial assumption that $(a + b)^ia^i$ is regular
+	
+\end{itemize}
+Myhill-Nerode\\
 	
 	\item The language where a word may have any number of $a$'s and $b$'s in any order, but may (or may not) contain 1 "$c$". If it contains a "$c$", it must be in the first half of the string (in odd-length strings this means at or before the middle character).
+	\\Pumping Lemma
+\begin{itemize}
+	\item 	Assume that $L$ is regular with $n$ states.  	
+	\item Let $w = b^na^n$ where $w \in L$ with $i=n, j=n$ Thus $|w| = 2n  \geq n$.
 	
+	\item Let $w = xyz$, where $|xy| \leq n$ and $|y| > 0$.
+	
+	\item By pumping lemma we must be able to break up $a^nb^na^n$ into 3 substrings, $xyz$, with $xy \leq n$ and $|y| > 0$, such that $xy^pz$ must also be in the language $(a + b)^ia^i$ for any $p \geq 0$
+	
+	\item Let $p = 2$. Then $xy^2z = b^ma^n$, where $m = n + |y|$.  And because $|y| > 0$. $m>n$
+	
+	\item Then $b^ma^n$ is not in the language $(a + b)^ia^i$
+	
+	\item This contradicts the Pumping Lemma and thus disproves our initial assumption that $(a + b)^ia^i$ is regular
+	
+\end{itemize}
+Myhill-Nerode\\
 \end{enumerate}
 
 
@@ -61,13 +239,27 @@
 \\\\
 \begin{enumerate}
 	\item Prove that PRIME' is nonregular (hint: prove that PRIME is nonregular first - this is a challenge, since you'll have to choose your pumping factor $K$ in a very clever way)
+	\begin{itemize}
+		\item 	Assume that $L = $ PRIME is regular with $n$ states.  	
+		\item Let $w = a^P$ where $P$ is a prime number greater than or equal to $n$
+		
+		\item Let $w = xyz$, where $|xy| \leq n$ and $|y| > 0$.
+		
+		\item By pumping lemma we must be able to break up $a^p$ into 3 substrings, $xyz$, with $xy \leq n$ and $|y| > 0$, such that $xy^kz$ must also be in the language
+		
+		\item Let $k = p+1$. Then $xy^{p+1}z = a^{p+p|y|} = a^{p(1 + |y|)}$
+		
+		\item Then because $p(1 + |y|)$ is the product of two number, it cannot be prime
+		
+		\item This contradicts the Pumping Lemma and thus disproves our initial assumption that PRIME is regular.  Then its complement, PRIME', cannot be regular.
+		
+	\end{itemize}
 	
 	\item Show that PRIME' does satisfy the pumping lemma (that is, it can't be proven nonregular using the pumping lemma)
 	
 	\item How can this be?
 	
 \end{enumerate}
-
 
 \end{enumerate}
 
