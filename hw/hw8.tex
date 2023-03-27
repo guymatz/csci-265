@@ -12,6 +12,7 @@
         X &\rightarrow aX | bX | \epsilon
       \end{aligned}
     \end{equation*}
+    Words that start with $a$
   \item
     \begin{equation*}
       \begin{aligned}
@@ -19,6 +20,8 @@
         X &\rightarrow aX | bX | \epsilon
       \end{aligned}
     \end{equation*}
+    A string of $a$'s and $b$'s repeated 3 times, with 
+    an $a$ in the middle of each repeat
   \item
     \begin{equation*}
       \begin{aligned}
@@ -26,39 +29,40 @@
         X &\rightarrow aX | Xa | b
       \end{aligned}
     \end{equation*}
+    Empty string or a string with $a$'s and zero or 3 $b$'s
 \end{enumerate}
 
 \newpage
 \item \textbf{Write CFGs for each of the languages defined by the following regular expressions:}
 \begin{enumerate}
-	\item $ab\kleene$
+  \item $ab\kleene$
     \begin{equation*}
       \begin{aligned}
-        S &\rightarrow SS | XXX \\
-        X &\rightarrow aX | Xa | b
+        S &\rightarrow aX \\
+        X &\rightarrow bX | \epsilon
       \end{aligned}
     \end{equation*}
-	
-	\item $a\kleene b\kleene$
+
+  \item $a\kleene b\kleene$
     \begin{equation*}
       \begin{aligned}
-        S &\rightarrow SS | XXX \\
-        X &\rightarrow aX | Xa | b
+        S &\rightarrow XY \\
+        X &\rightarrow aX | \epsilon \\
+        Y &\rightarrow bY | \epsilon
       \end{aligned}
     \end{equation*}
-	
-	\item $(baa + abb) \kleene$
+    
+    \item $(baa + abb) \kleene$
     \begin{equation*}
       \begin{aligned}
-        S &\rightarrow SS | XXX \\
-        X &\rightarrow aX | Xa | b
+        S &\rightarrow baaS | abbS | \epsilon \\
       \end{aligned}
     \end{equation*}
-	\item $ab (bb \kleene + aab ) \kleene$
+  \item $ab (bb \kleene + aab ) \kleene$
     \begin{equation*}
       \begin{aligned}
-        S &\rightarrow SS | XXX \\
-        X &\rightarrow aX | Xa | b
+        S &\rightarrow abX | \epsilon \\
+        X &\rightarrow bbX | aabX | \epsilon \\
       \end{aligned}
     \end{equation*}
 \end{enumerate}
@@ -72,6 +76,15 @@
         X &\rightarrow Xa | Xb | \epsilon
       \end{aligned}
     \end{equation*}
+      \begin{itemize}
+        \item The CFG generates the language 
+          \[ ((a + b)\kleene baa ) + a(a + b)\kleene \]
+        \item $abaaa$
+        \begin{itemize}
+          \item $X = a$
+          \item $X = baaa$
+        \end{itemize}
+      \end{itemize}
 
 \newpage
 \item \textbf{Look at the definition of a valid identifier in C++ here:\\
@@ -79,13 +92,16 @@
     \\
 What can this generate, and what does it tell us about valid C++ identifiers?}
 
+This can generate strings of nondigits or "universal-
+character-names" followed by nondigits, "universal-character-names" or
+digits
 \newpage
 \item \textbf{Write a CFG for the language $L = \{ a^ib^jc^k | i>j+k\}$
 }
 \newpage
 \item \textbf{The following CFG generates the language of all words with an
 equal number of a's and b's:
-$$S \rightarrow aSbS | bSaS | \epsilon$$
+\[S \rightarrow aSbS | bSaS | \epsilon\]
 Then, give a CFG which generates the language of all words which have more
 a's than b's.}\\
 Hint: You'll need to introduce an additional variable, ensure that an extra
@@ -95,7 +111,7 @@ the word.
 
 \newpage
 \item \textbf{Using the alphabet $\Sigma = \{a, b, e, (, ), +, \kleene\}$
-(Note that "e" stands for the character of epsilon, to distinguish it from
+(Note that `e' stands for the character of epsilon, to distinguish it from
 the empty string, $\epsilon$. Also note that the left parenthesis and right
 parenthesis are letters in this alphabet) Then create a CFG that generates
 valid regular expressions. For example, the CFG could generate the word
