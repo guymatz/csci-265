@@ -1,0 +1,86 @@
+\input{hw/header.tex}
+\begin{itemize}
+\item \textbf{Decidability}
+	\begin{itemize}
+		\item \textbf{How to tell whether two REs define the same Language}
+			\begin{enumerate}
+				\item Convert the REs $\implies \epsilon$NDFAs $\implies$ DFAs
+				\item Minimize the DFAs
+				\item Compare! (Graph Isomorphism Problem?  Decidabiity video 1:45)
+			\end{enumerate}
+		\item \textbf{How to tell whether two FAs accept the same Language}:
+		\begin{itemize}
+			\item When you have two regular languages, regardless of how they are each described - RE vs FA - to tell whether they describe the same language, convert them to DFAs \& compare
+			\\OR
+			\item With two DFAs, $L1 \& L2$, construct the DFA for $(L_1 \cap L_2^c) \cup (L_1^c \cap L_2)$.  It should accept no words
+		\end{itemize}
+		\item \textbf{How to tell whether a given FA/RE contains:}
+		\begin{itemize}
+			\item no words: a FA with no reachable accepting states, or RE = $\emptyset$
+			\item Finitely many words
+			\begin{itemize}
+				\item A RE describes an finite $L$ if it DOES NOT HAVE a kleene star applied to a letter (not an $\epsilon$)
+				\item A FA describes an finite $L$ if DOES NOT HAVE a path from the starting state to an accepting state that contains a cycle with more than just an $\epsilon$
+			\end{itemize}
+			\item Infinitely many words
+				\begin{itemize}
+					\item A RE describes an infinite $L$ if it has a kleene star applied to a letter (not an $\epsilon$)
+					\item A FA describes an infinite $L$ if there is a path from the starting state to an accepting state that contains a cycle with more than just an $\epsilon$
+				\end{itemize}
+		\end{itemize}
+	\end{itemize}
+\item \textbf{Closure}
+\begin{itemize}
+\item \textbf{Union} of two regular languages - $L \& M$ - is regular
+  because  the two have Regular expressions - $R \& S$ - that describe
+  them, and $L \cup M = R + S$, which is another regular expression
+
+\item \textbf{Complement} of a regular language L is regular since we can
+  construct a DFA of the language, then swap its accepting and rejecting
+  states to create a complementary DFA
+\item \textbf{Intersection} of two regular languages - $L \& M $- is
+  regular because - by DeMorgan's Law - $L \cap M = (L^c \cup M^c)^c$
+  and we know that Union and complementation are closed
+\item \textbf{Difference} of two regular languages - $L \& M$ - is
+  regular since  $L - M = L \cap M^c$ and Intersection and complement are
+  closed.  
+
+\item \textbf{Reversal} ($w$ backwards) The Reversal of a regular language
+	is regular since we can construct a ($\epsilon$ N)DFA, $A$, by:
+	\begin{enumerate}
+		\item Reversing the arcs in the state diagram $A$
+		\item Make the start state of $A$ be the only accepting state 
+		\item Create a new start state $p_0$ with transitions on $\epsilon$ to
+		all accepting states of $A$
+	\end{enumerate}
+\item \textbf{Subset / Superset}: \textbf{NOT} closed
+\begin{itemize}
+	\item Subset: find a counterexample, e.g. for $a^ib^j$, $a^nb^n$
+ 	\item Superset: find a counterexample, e.g. for $a^ib^j$, $b^na^nb^n$
+\end{itemize}
+\end{itemize}
+
+\item \textbf{Pumping Lemma}
+\begin{enumerate}
+	\item \textbf{Statement about assuming the language is regular}
+	\\Let us assume that the language $L = a^ib^ja^i$ is regular. Then, there must be some DFA which recognizes that language, and that DFA must have some number of states, $n$.
+	\item\textbf{ Find a word in the language which will break the pumping lemma, one in which there are $n$ letters in the first half of the word, then some other stuff}
+	\\ The string $w = a^nba^n$ is in the language $a^ib^ja^i$, with $i=n$ and $j=1$.
+	\item \textbf{State the Pumping Lemma}
+	\\ By the Pumping Lemma, we must be able to break up $w$ into 3 substrings, $xyz$, with $|xy| \leq n$ and $|y|>0$, such that $xy^pz$ must also be in the language $a^ib^ja^i$, for any $p \geq 0$.
+	\item \textbf{Show the Contradiction}
+	\\ Yet, we can see that p=2 would yield $a^mba^n$, where $m=n+|y|$. And because $|y|>0$, $m>n$. Then, $a^mba^n$ is not in the language $a^ib^ja^i$, contradicting the Pumping Lemma and thus disproving our initial assumption that $a^ib^ja^i$ is regular.
+\end{enumerate}
+
+\item \textbf{Myhill-Nerode}
+\begin{itemize}
+	\item \textbf{Finite}
+	Show by a table that the Language is finite by listing all of the possible combinations of prefixes and suffixes
+	\item \textbf{Infinite}
+	There exists an infinite set of prefixes $S = \{a^n | n \geq 0\}$ such that for any two prefixes, $a^X$ and $a^Y$ - with $X \neq Y$ - there is a suffix that distinguishes them such that $a^Xc^X$ is in the language but $a^Yc^X$ is not
+\end{itemize}
+
+
+\end{itemize}
+
+\input{hw/footer.tex}
