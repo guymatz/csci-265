@@ -29,7 +29,7 @@
         X &\rightarrow aX | Xa | b
       \end{aligned}
     \end{equation*}
-    Empty string or a string with $a$'s and zero or 3 $b$'s
+    3x $a$'s and 3x $b$'s
 \end{enumerate}
 
 \newpage
@@ -98,6 +98,14 @@ digits
 \newpage
 \item \textbf{Write a CFG for the language $L = \{ a^ib^jc^k | i>j+k\}$
 }
+    \begin{equation*}
+      \begin{aligned}
+        S &\rightarrow XYZ\\
+        X &\rightarrow aX | a\\
+        Y &\rightarrow aYc | aZc | \epsilon\\
+        Z &\rightarrow aZb | \epsilon
+      \end{aligned}
+    \end{equation*}
 \newpage
 \item \textbf{The following CFG generates the language of all words with an
 equal number of a's and b's:
@@ -105,7 +113,7 @@ equal number of a's and b's:
 Then, give a CFG which generates the language of all words which have more
 a's than b's.}\\
 Hint: You'll need to introduce an additional variable, ensure that an extra
-$a$ gets generated, and allow additional extra $a$s to be generated. You'll
+$a$ gets generated, and allow additional extra $a$'s to be generated. You'll
 also need to somehow ensure the extra a's can be generated anywhere within
 the word.
 
