@@ -1,10 +1,6 @@
-\documentclass{scrbook}
-%\KOMAoptions{twoside=false} % disable two-side formatting for scrbook
-% alternatively, for shorter essay, use the following
-% \documentclass{scrartcl}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[12pt]{scrbook}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Useful packages
 \usepackage{mathtools}
 \usepackage{amssymb,bm,bbold}
@@ -62,7 +58,14 @@
 \usepackage[varqu]{zi4}
 \usepackage[libertine]{newtxmath}
 \usepackage[T1]{fontenc}
-
+%\usepackage[margin=2.5cm]{geometry} % margins
+%\usepackage[english]{babel} % language (replace with german or ngerman for german texts)
+%\usepackage[utf8]{inputenc} % Umlaute
+%\usepackage{amsmath}    % math formulas
+%\usepackage{graphicx}    % graphics
+%\usepackage{fancyhdr}    % header and footer on every page
+%\usepackage{setspace}    % line space (e.g. \singlespacing, \onehalfspacing or \doublespacing)
+%\usepackage{enumitem}     % enumerate options
 \usepackage[protrusion=true,expansion=true]{microtype}
 
 \author{Guy Matz}
@@ -79,36 +82,8 @@
 	
 \title{Title}
 % \maketitle
-
-% \tableofcontents
-% 
-% %\bibliography{bibfile}
-% 
-% \end{document}
-%\documentclass[11pt, a4paper]{article} % setsfont size and layout
-%
-%%% required packages %%
-%
-%\usepackage[margin=2.5cm]{geometry} % margins
-%\usepackage[english]{babel} % language (replace with german or ngerman for german texts)
-%\usepackage[utf8]{inputenc} % Umlaute
-%\usepackage{amsmath}    % math formulas
-%\usepackage{graphicx}    % graphics
-%\usepackage{fancyhdr}    % header and footer on every page
-%\usepackage{setspace}    % line space (e.g. \singlespacing, \onehalfspacing or \doublespacing)
-%\usepackage{enumitem}     % enumerate options
-%
-%
-%%% Here the main part of the document begins %%
-%
-%\begin{document}
-
-%% Some more settings %%
-
 \setlength{\parindent}{0pt} % first line in paragraph will not be indented
 \onehalfspacing        % 1.5 line spacing
-%\thispagestyle{empty}    % no header and page number on first page
-
 
 %% Header on first page with course information etc. %%
 \begin{tabular}{p{15.5cm}}
@@ -121,7 +96,6 @@
 \end{tabular}
 
 \vspace*{0.3cm}        % vertical space between header on top of the page and main heading
-
 
 \begin{center}
   {\Large \textbf{Problem Set 9}}
