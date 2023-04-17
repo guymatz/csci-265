@@ -141,11 +141,19 @@ PDA\. Do at least one going through CNF and at least one not going through CNF
        & \mathrm{A} \rightarrow \mathrm{AB} \mid \mathrm{a} \\
        & \mathrm{B} \rightarrow \mathrm{SS}|\mathrm{BA}| \mathrm{b}
      \end{aligned}
-$
- \sbox{\poopy}{\begin{tabular}{c c c c}
-     $\epsilon,S/AA$ & $\epsilon,A/AB$ & $\epsilon,B/SS$ & $a,a/\epsilon$ \tabularnewline
-     $\epsilon,S/SB$ & $\epsilon,A/a$ & $\epsilon,B/BA$ & $b,b/\epsilon$  \tabularnewline
-     $\epsilon,S/b$ & & $\epsilon,B/b$ \tabularnewline
+$\\\\
+% \sbox{\poopy}{\begin{tabular}{c c c c}
+%     $\epsilon,S/AA$ & $\epsilon,A/AB$ & $\epsilon,B/SS$ & $a,a/\epsilon$ \tabularnewline
+%     $\epsilon,S/SB$ & $\epsilon,A/a$ & $\epsilon,B/BA$ & $b,b/\epsilon$  \tabularnewline
+%     $\epsilon,S/b$ & & $\epsilon,B/b$ \tabularnewline
+%  \end{tabular}
+%  }
+% IN CNF
+ALREADY IN CNF:
+ \sbox{\poopy}{\begin{tabular}{c c c}
+     $\epsilon,S/AA$ & $\epsilon,A/AB$ & $\epsilon,B/SS$ \tabularnewline
+     $\epsilon,S/SB$ & $a,A/\epsilon$ & $\epsilon,B/BA$ \tabularnewline
+     $b,S/\epsilon$ & & $b,B/\epsilon$ \tabularnewline
   \end{tabular}
   }
 
