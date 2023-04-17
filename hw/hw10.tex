@@ -70,36 +70,38 @@
 
 \author{Guy Matz}
 
-\tikzset{
-  ->, % makes the edges directed 
-%		>='stealth', % makes the arrow heads bold 
-	node distance=3cm, % specifies the minimum distance between two nodes. Change if necessary. 
-	every state/.style={thick, fill=gray!10}, % sets the properties for each ’state’ node 
-	initial text=$ $, % sets the text that appears on the start arrow 
-}
+\setlength{\parindent}{0pt} % first line in paragraph will not be indented
+\onehalfspacing        % 1.5 line spacing
 
 \begin{document}
 
-%% Header on first page with course information etc. %%
-\begin{tabular}{p{15.5cm}}
-    {\large \textbf{Computer Theory I}} \\
-  Hunter College \\
-  Spring 2023  \\
-  Instructor: Prof. Tojeira\\
-  \hline
-  \\
-\end{tabular}
+\tikzset{->, % makes the edges directed 
+  >=latex, % makes the arrow heads bold 
+  node distance=3cm, % specifies the minimum distance between two nodes. Change if necessary. 
+  every state/.style={thick, fill=gray!10}, % sets the properties for each ’state’ node 
+  initial text=$ $, % sets the text that appears on the start arrow 
+}
 
-\begin{center}
-  {\Large \textbf{Problem Set 10}}
-  \vspace{2mm}\\
-  Guy Matz
-\end{center}
+%% Header on first page with course information etc. %%
+  \begin{tabular}{p{15.5cm}}
+    {\large \textbf{Computer Theory I}} \\
+    Hunter College \\
+    Spring 2023  \\
+    Instructor: Prof. Tojeira\\
+    \hline
+  \end{tabular}
+
+  \begin{center}
+    {\Large \textbf{Problem Set 10}}
+    \vspace{2mm}\\
+    Guy Matz
+  \end{center}
 
 \section*{Part 1: Implementing a CFG as a PDA:}
 \vspace{0.4cm}
-\subsection*{Problem 1}
-Convert the following CFGs to a state diagram of a PDA. Do at least one going through CNF and at least one not going through CNF (hint: one is already in $\mathrm{CNF})$
+\subsection*{Problem 1} Convert the following CFGs to a state diagram of a
+PDA\. Do at least one going through CNF and at least one not going through CNF
+(hint: one is already in $\mathrm{CNF})$
 
 
 \begin{enumerate}
@@ -151,11 +153,13 @@ Convert the following CFGs to a state diagram of a PDA. Do at least one going th
 
 \newpage
 
-\section*{Part 2: Conversions to CNF}
-Textbook problems: 7.1.1 - 7.1.4 (p. 275): You can find the solutions to the first two problems here: http://infolab.stanford.edu/ ullman/ialcsols/sol7.html
+\section*{Part 2: Conversions to CNF} Textbook problems: 7.1.1 - 7.1.4 (p.
+275): You can find the solutions to the first two problems here:
+http://infolab.stanford.edu/ ullman/ialcsols/sol7.html
 
 
-\subsection*{Problem 7.1.1}Find a grammar equivalent to the following, but with no useless symbols:
+\subsection*{Problem 7.1.1}Find a grammar equivalent to the following, but with
+no useless symbols:
 
 $ \begin{aligned}[t]
 & S \rightarrow A B \mid C A \\
@@ -164,8 +168,9 @@ $ \begin{aligned}[t]
 & C \rightarrow a B \mid b
 \end{aligned} $
 
-\newpage
-\subsection*{Problem 7.1.2}Begin with the following grammar, then eliminate $\varepsilon$-productions, eliminate unit productions, eliminate useless symbols, then put the grammar into CNF.
+\newpage \subsection*{Problem 7.1.2}Begin with the following grammar, then
+eliminate $\varepsilon$-productions, eliminate unit productions, eliminate
+useless symbols, then put the grammar into CNF.
 
 $ \begin{aligned}
 & \mathrm{S} \rightarrow \mathrm{ASB} \mid \varepsilon \\
