@@ -220,12 +220,13 @@ $ \begin{aligned}[t]
   B &\rightarrow BC | AB \\
   C &\rightarrow aB | b
   \end{aligned} $
-
+\\\\\\
 $ \begin{aligned}[t]
   S &\rightarrow AB | CA \\
   A &\rightarrow a \\
   B &\rightarrow BC | AB \\
-  C &\rightarrow aB | b
+  C &\rightarrow XB | b \\
+  X &\rightarrow a \\
   \end{aligned} $
 
 \newpage \subsection*{Problem 7.1.2}Begin with the following grammar, then
@@ -238,10 +239,32 @@ $ \begin{aligned}
   B &\rightarrow SbS | A | bb
   \end{aligned} 
 $
+\\\\\\
 $ \begin{aligned}
-  S &\rightarrow ASB | \epsilon \\
+  S &\rightarrow ASB | AB \\
   A &\rightarrow aAS | a \\
   B &\rightarrow SbS | A | bb
+  \end{aligned} 
+$
+\\\\\\
+$ \begin{aligned}
+  S &\rightarrow ASB | AB \\
+  A &\rightarrow XAS | a \\
+  B &\rightarrow SYS | XAS | a | YY \\
+  X &\rightarrow a \\
+  Y &\rightarrow b \\
+  \end{aligned} 
+$
+\\\\\\
+$ \begin{aligned}
+  S &\rightarrow Z_0B | AB \\
+  A &\rightarrow Z_1S | a \\
+  B &\rightarrow Z_2S | Z_1S | a | YY \\
+  X &\rightarrow a \\
+  Y &\rightarrow b \\
+  Z_0 &\rightarrow AS \\
+  Z_1 &\rightarrow XA \\
+  Z_2 &\rightarrow SY \\
   \end{aligned} 
 $
 
@@ -253,11 +276,19 @@ $ \begin{aligned}[t]
   B &\rightarrow S | A \\
   C &\rightarrow S | \epsilon
 \end{aligned}$
-
+\\\\\\
 $ \begin{aligned}[t]
-  S &\rightarrow 0A0| 1B1| BB \\
-  A &\rightarrow S \\
-  B &\rightarrow S | A \\
+  S &\rightarrow 0A0| | 0S0 | 00 |  1S1| 11 \\
+  X &\rightarrow 0 \\
+  Y &\rightarrow 1 \\
+\end{aligned}$
+\\\\\\
+$ \begin{aligned}[t]
+  S &\rightarrow Z_00| | Z_10 | XX |  1B1| BB \\
+  X &\rightarrow 0 \\
+  Y &\rightarrow 1 \\
+  Z_0 &\rightarrow XA
+  Z_1 &\rightarrow XS
 \end{aligned}$
 
 
