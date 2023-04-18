@@ -107,7 +107,7 @@ PDA\. Do at least one going through CNF and at least one not going through CNF
   \item $
     \begin{aligned}[t]
         & S \rightarrow A a B \mid S A \\
-        & A \rightarrow a A b|B| \varepsilon \\
+        & A \rightarrow a A b|B| \epsilon \\
         & B \rightarrow S b \mid b
     \end{aligned}
      $
@@ -209,52 +209,85 @@ ALREADY IN CNF:
 
 \section*{Part 2: Conversions to CNF} Textbook problems: 7.1.1 - 7.1.4 (p.
 275): You can find the solutions to the first two problems here:
-http://infolab.stanford.edu/ ullman/ialcsols/sol7.html
-
+http://infolab.stanford.edu/ullman/ialcsols/sol7.html
 
 \subsection*{Problem 7.1.1}Find a grammar equivalent to the following, but with
 no useless symbols:
 
 $ \begin{aligned}[t]
-& S \rightarrow A B \mid C A \\
-& A \rightarrow a \\
-& B \rightarrow B C \mid A B \\
-& C \rightarrow a B \mid b
-\end{aligned} $
+  S &\rightarrow AB | CA \\
+  A &\rightarrow a \\
+  B &\rightarrow BC | AB \\
+  C &\rightarrow aB | b
+  \end{aligned} $
+
+$ \begin{aligned}[t]
+  S &\rightarrow AB | CA \\
+  A &\rightarrow a \\
+  B &\rightarrow BC | AB \\
+  C &\rightarrow aB | b
+  \end{aligned} $
 
 \newpage \subsection*{Problem 7.1.2}Begin with the following grammar, then
-eliminate $\varepsilon$-productions, eliminate unit productions, eliminate
+eliminate $\epsilon$-productions, eliminate unit productions, eliminate
 useless symbols, then put the grammar into CNF.
 
 $ \begin{aligned}
-& \mathrm{S} \rightarrow \mathrm{ASB} \mid \varepsilon \\
-& \mathrm{A} \rightarrow \mathrm{aAS} \mid \mathrm{a} \\
-& \mathrm{B} \rightarrow \mathrm{SbS}|\mathrm{A}| \mathrm{bb}
-\end{aligned} $
+  S &\rightarrow ASB | \epsilon \\
+  A &\rightarrow aAS | a \\
+  B &\rightarrow SbS | A | bb
+  \end{aligned} 
+$
+$ \begin{aligned}
+  S &\rightarrow ASB | \epsilon \\
+  A &\rightarrow aAS | a \\
+  B &\rightarrow SbS | A | bb
+  \end{aligned} 
+$
 
 \subsection*{Problem 7.1.3}As in 7.1.2, convert the following grammar to CNF:
 
 $ \begin{aligned}[t]
-& \mathrm{S} \rightarrow 0 \mathrm{~A} 0|1 \mathrm{~B} 1| \mathrm{BB} \\
-& \mathrm{A} \rightarrow \mathrm{C} \\
-& \mathrm{B} \rightarrow \mathrm{S} \mid \mathrm{A} \\
-& \mathrm{C} \rightarrow \mathrm{S} \mid \varepsilon
-\end{aligned} $
+  S &\rightarrow 0A0| 1B1| BB \\
+  A &\rightarrow C \\
+  B &\rightarrow S | A \\
+  C &\rightarrow S | \epsilon
+\end{aligned}$
+
+$ \begin{aligned}[t]
+  S &\rightarrow 0A0| 1B1| BB \\
+  A &\rightarrow S \\
+  B &\rightarrow S | A \\
+\end{aligned}$
+
 
 \subsection*{Problem 7.1.4}Put this grammar into CNF:
 
 $\begin{aligned}[t]
-& \mathrm{S} \rightarrow \mathrm{AAA} \mid \mathrm{B} \\
-& \mathrm{A} \rightarrow \mathrm{aA} \mid \mathrm{B} \\
-& \mathrm{B} \rightarrow \varepsilon
+  S &\rightarrow AAA | B \\
+  A &\rightarrow aA | B \\
+  B &\rightarrow \epsilon
 \end{aligned}$
+\\\\\\
+$\begin{aligned}[t]
+  S &\rightarrow AAA | AA | A \\
+  A &\rightarrow aA | a \\
+\end{aligned}$
+
 
 \subsection*{Problem 7.1.x}From a previous exam, put this into CNF:
 
 $\begin{aligned}
-& \mathrm{S} \rightarrow \mathrm{BA} \mid \mathrm{bSa} \\
-& \mathrm{A} \rightarrow \mathrm{B} \mid \mathrm{aB} \\
-& \mathrm{B} \rightarrow \mathrm{A} \mid \varepsilon
+ S &\rightarrow BA | bSa \\
+ A &\rightarrow B | aB \\
+ B &\rightarrow A | \epsilon
 \end{aligned}$
+\\\\\\
+$\begin{aligned}
+ S &\rightarrow BA | A | bSa \\
+ A &\rightarrow B | aB | a | \epsilon \\
+ B &\rightarrow A
+\end{aligned}$
+
 
 \end{document}
