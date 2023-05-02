@@ -1,0 +1,118 @@
+\documentclass[12pt]{scrbook}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Useful packages
+\usepackage{mathtools}
+\usepackage{amssymb,bm,bbold}
+\usepackage{enumerate}
+
+\usepackage{hhline}
+\usepackage{float}
+
+% CSCI-265
+\usepackage{tikz}
+\usetikzlibrary{automata, positioning, arrows, arrows.meta}
+
+
+%=================================
+% pre-defined theorem environments
+\usepackage{amsthm}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{proposition}{Proposition}
+\newtheorem{corollary}{Corollary}
+\newtheorem{definition}{Definition}
+\newtheorem*{remark}{Remark}
+\newtheorem*{assumption}{Assumption}
+
+%=================================
+% useful commands
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\supp}{supp}
+
+\def\vec#1{{\ensuremath{\bm{{#1}}}}}
+\def\mat#1{\vec{#1}}
+
+%=================================
+% convenient notations
+\newcommand{\XX}{\mathbb{X}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\EE}{\mathbb{E}}
+\newcommand{\PP}{\mathbb{P}}
+
+\newcommand{\sL}{\mathcal{L}}
+\newcommand{\sX}{\mathcal{X}}
+\newcommand{\sY}{\mathcal{Y}}
+
+\newcommand{\ind}{\mathbb{1}}
+
+\newcommand{\kleene}{{}^\ast}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Typography, change document font
+\usepackage[tt=false, type1=true]{libertine}
+\usepackage[varqu]{zi4}
+\usepackage[libertine]{newtxmath}
+\usepackage[T1]{fontenc}
+%\usepackage[margin=2.5cm]{geometry} % margins
+%\usepackage[english]{babel} % language (replace with german or ngerman for german texts)
+%\usepackage[utf8]{inputenc} % Umlaute
+%\usepackage{amsmath}    % math formulas
+%\usepackage{graphicx}    % graphics
+%\usepackage{fancyhdr}    % header and footer on every page
+%\usepackage{setspace}    % line space (e.g. \singlespacing, \onehalfspacing or \doublespacing)
+%\usepackage{enumitem}     % enumerate options
+\usepackage[protrusion=true,expansion=true]{microtype}
+
+\author{Guy Matz}
+
+\setlength{\parindent}{0pt} % first line in paragraph will not be indented
+%\onehalfspacing        % 1.5 line spacing
+
+\begin{document}
+
+%% Header on first page with course information etc. %%
+  \begin{tabular}{p{15.5cm}}
+    {\large \textbf{Computer Theory I}} \\
+    Hunter College \\
+    Spring 2023  \\
+    Instructor: Prof. Tojeira\\
+    \hline
+  \end{tabular}
+  \begin{center}
+    {\Large \textbf{Problem Set 11}}
+    \vspace{2mm}\\
+    Guy Matz
+  \end{center}
+
+\begin{enumerate}
+  \item \textbf{Proving the relations of the Chomsky hierarchy}.  Give brief
+    justifications for each of the following relations
+    \begin{enumerate}
+      \item The class of CFLs is a proper subset of the class of CSLs.
+      \item The class of recursively enumerable languages is a superset of class of recursive languages.
+      \item The class of CSLs is a subset of the class of recursive languages.
+    \end{enumerate}
+  \item \textbf{Turing Machine Algorithms}.  Describe the approach you might take with a
+    Turing Machine to accept the following languages. You do not need to
+    write out the TM, just describe how it would operate.
+      \begin{enumerate}
+        \item All palindromes of even length
+        \item $a2^n$, $n \geq 0$ (words with a number of a's equal to some power of 2)
+        \item $a^p$, where p is prime. Hint: you can add additional letters or symbols as needed.
+      \end{enumerate}
+  \item \textbf{Closure Properties}.  Prove or disprove each of the following closure properties
+    \begin{enumerate}
+          \item CSLs are closed under complement
+          \item CSLs are closed under intersection
+          \item Recursive languages are closed under concatenation
+          \item The subset of a recursive language is always recursive
+          \item RE (recursively enumerable) languages are closed under complement
+    \end{enumerate}
+
+\end{enumerate}
+\end{document}
