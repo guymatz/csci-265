@@ -132,13 +132,15 @@
           \begin{enumerate}
             \item Mark the first letter as \#
               \begin{enumerate}
-                \item If it was an $a$, go R until $B$, then go L past \#s and look for an $a$
+                \item If it was an $a$, go R until $B$, then go L past \#s
+                  and look for an $a$
                   \begin{itemize}
-                    \item If not, FAIL
+                    \item If not an $a$, FAIL
                   \end{itemize}
-                \item If it was an $b$, go R until $B$, then go L past \#s and look for an $b$
+                \item If it was an $b$, go R until $B$, then go L past \#s
+                  and look for an $b$
                   \begin{itemize}
-                    \item If not, FAIL
+                    \item If not $b$, FAIL
                   \end{itemize}
               \end{enumerate}
             \item Go L until $B$
@@ -199,21 +201,29 @@
     \begin{enumerate}
           \item CSLs are closed under complement
 
-            No.  CSLs include CFLs, which are not closed under complement
+            False.  CSLs include CFLs, which are not closed under complement
             so CSLs are not either
 
           \item CSLs are closed under intersection
 
-            No.  Since CSLs are not closed under complement, by
+            False.  Since CSLs are not closed under complement, by
             DeMorgan's, they are not closed under intersection
 
           \item Recursive languages are closed under concatenation
 
+            True.  Recursive languages are accepted by a Turing Machine,
+            so - by construction - concatentating languages are accepted
+            by a TM
 
           \item The subset of a recursive language is always recursive
 
+            True.  Recursive languages are accepted by a Turing Machine,
+            so a subset off the language will also be accepted
+            by a TM
 
           \item RE (recursively enumerable) languages are closed under complement
+
+            False.  I don't know why, but it has to be.
 
 
     \end{enumerate}
