@@ -125,6 +125,7 @@
   \item \textbf{Turing Machine Algorithms}.  Describe the approach you might take with a
     Turing Machine to accept the following languages. You do not need to
     write out the TM, just describe how it would operate.
+
       \begin{enumerate}
         \item All palindromes of even length
 
@@ -148,24 +149,44 @@
         \item $a^{2^n}$, $n \geq 0$ (words with a number of a's equal to some power of 2)
 
           \begin{enumerate}
-            \item Mark the first letter as \#
-              \begin{enumerate}
-                \item If it was an $a$, go R until $B$, then go L past \#s and look for an $a$
-                  \begin{itemize}
-                    \item If not, FAIL
-                  \end{itemize}
-                \item If it was an $b$, go R until $B$, then go L past \#s and look for an $b$
-                  \begin{itemize}
-                    \item If not, FAIL
-                  \end{itemize}
-              \end{enumerate}
-            \item Go L until $B$
-            \item Skip \#, go R
-            \item Repeat
+            \item Crash on any letter other than $a, \#, B$
+            \item In $q_0$
+              \begin{itemize}
+                \item $B$: HALT
+                \item \#: Go R
+                \item $a$ : Mark as \# and enter $q_1$
+              \end{itemize}
+            \item In $q_1$
+              \begin{itemize}
+              \item $a$: go R
+              \item \#: go R
+              \item $B$: Enter $q_2$, go L
+              \end{itemize}
+            \item In $q_2$
+              \begin{itemize}
+              \item $a$: Mark as \# and enter $q_3$
+              \item \#: Go L
+              \end{itemize}
+            \item In $q_3$
+              \begin{itemize}
+              \item $a$: Go L
+              \item \#: Go L
+              \item $B$: Enter $q_0$ and repeat
+              \end{itemize}
           \end{enumerate}
 
+          \begin{table}[H]
+          \begin{tabular}{c | c | c | c}
+            a & $q_1, \#, R$ & $q_1, a, R$ & $q_3, \#, L$ & $q_3, a, L$   \\
+            \# & $q_0, \#, R$ & $q_1, \#, R$ &  $q_2, \#, L$  & $q_2, \#, L$  \\
+            B & HALT &  $q_2, B, L$ &  & $q_0, B, L$
+          \end{tabular}
+        \end{table}
+
         \item $a^p$, where p is prime. Hint: you can add additional letters or symbols as needed.
+
       \end{enumerate}
+
   \item \textbf{Closure Properties}.  Prove or disprove each of the following closure properties
     \begin{enumerate}
           \item CSLs are closed under complement
