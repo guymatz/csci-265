@@ -145,16 +145,48 @@
             \item Repeat
           \end{enumerate}
 
-        \item $a2^n$, $n \geq 0$ (words with a number of a's equal to some power of 2)
+        \item $a^{2^n}$, $n \geq 0$ (words with a number of a's equal to some power of 2)
+
+          \begin{enumerate}
+            \item Mark the first letter as \#
+              \begin{enumerate}
+                \item If it was an $a$, go R until $B$, then go L past \#s and look for an $a$
+                  \begin{itemize}
+                    \item If not, FAIL
+                  \end{itemize}
+                \item If it was an $b$, go R until $B$, then go L past \#s and look for an $b$
+                  \begin{itemize}
+                    \item If not, FAIL
+                  \end{itemize}
+              \end{enumerate}
+            \item Go L until $B$
+            \item Skip \#, go R
+            \item Repeat
+          \end{enumerate}
+
         \item $a^p$, where p is prime. Hint: you can add additional letters or symbols as needed.
       \end{enumerate}
   \item \textbf{Closure Properties}.  Prove or disprove each of the following closure properties
     \begin{enumerate}
           \item CSLs are closed under complement
+
+            No.  CSLs include CFLs, which are not closed under complement
+            so CSLs are not either
+
           \item CSLs are closed under intersection
+
+            No.  Since CSLs are not closed under complement, by
+            DeMorgan's, they are not closed under intersection
+
           \item Recursive languages are closed under concatenation
+
+
           \item The subset of a recursive language is always recursive
+
+
           \item RE (recursively enumerable) languages are closed under complement
+
+
     \end{enumerate}
 
 \end{enumerate}
