@@ -175,15 +175,23 @@
               \end{itemize}
           \end{enumerate}
 
-          \begin{table}[H]
-          \begin{tabular}{c | c | c | c}
-            a & $q_1, \#, R$ & $q_1, a, R$ & $q_3, \#, L$ & $q_3, a, L$   \\
-            \# & $q_0, \#, R$ & $q_1, \#, R$ &  $q_2, \#, L$  & $q_2, \#, L$  \\
-            B & HALT &  $q_2, B, L$ &  & $q_0, B, L$
+          \begin{center}
+          \begin{tabular}{| c || c | c | c | c |}
+            \hline
+              & q_0& q_1 & _2 & q_3   \\
+            \hline \hline
+            a & q_1, \#, R & q_1, a, R & q_3, \#, L & q_3, a, L   \\
+            \hline
+            \# & q_0, \#, R & q_1, \#, R &  q_2, \#, L  & q_2, \#, L  \\
+            \hline
+            B & \text{HALT} &  q_2, B, L &  & q_0, B, L \\
+            \hline
           \end{tabular}
-        \end{table}
+          \end{center}
 
         \item $a^p$, where p is prime. Hint: you can add additional letters or symbols as needed.
+
+          I don't know :-(
 
       \end{enumerate}
 
