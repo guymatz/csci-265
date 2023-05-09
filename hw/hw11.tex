@@ -137,15 +137,32 @@
         one variable, so it is therefore a restricted CSG, and is therefore a
         proper subset.
 
+        Prof says:  Show a word is in the superset, but not in the subset.  $a^nb^nc^n$ is 
+        CSL but not CFL (see context-sensitive tasks pdf).  And an LBA can simulate a PDA
+
+        or
+
+        a CFG is a restricted form of a CSG
+
       \item The class of recursively enumerable languages is a superset of class of recursive languages.
 
         Every RE is Recursive, but there are some Recursive languages that are
         not Recursively Enumerable.
 
+        Prof says: A RE is a lang for whcih there is a TM that will recognize, accept and
+        halt for all words in the languages.  A recursive lang will also reject
+        words not in the language
+
       \item The class of CSLs is a subset of the class of recursive languages.
 
         A Turing machine can process both a RE language as well as a CSL, while
         Context Sensitive language can be processed by a linear-bounded automaton
+
+        Prof says: CSGs can be transformed into Kuroda normal form, but recursive languages
+        not in CSG cannot
+
+        OR a LBA can be simulated by a TM using a linear amount of tape.
+        OR an LBA is a restricted TM
 
     \end{enumerate}
   \item \textbf{Turing Machine Algorithms}.  Describe the approach you might take with a
@@ -221,6 +238,8 @@
 
           I don't know :-(
 
+          Prof says: See example of divisibility.  Add more $b$s to check ffor primeness
+
       \end{enumerate}
 
   \item \textbf{Closure Properties}.  Prove or disprove each of the following closure properties
@@ -230,10 +249,15 @@
             False.  CSLs include CFLs, which are not closed under complement
             so CSLs are not either
 
+            Prof says: Yes.!  Swap Halt & Crash states
+
           \item CSLs are closed under intersection
 
             False.  Since CSLs are not closed under complement, by
             DeMorgan's, they are not closed under intersection
+
+            Prof says: Since CSLs are closed under complement, by
+            DeMorgan's, they are closed under intersection (Union by construction)
 
           \item Recursive languages are closed under concatenation
 
@@ -241,18 +265,31 @@
             so, by construction, concatentating languages are accepted
             by a TM
 
+            Prof says: Apply construction $S -> XY$ (aaplied to union & kleene)
+
           \item The subset of a recursive language is always recursive
 
             True.  Recursive languages are accepted by a Turing Machine,
-            so a subset off the language will also be accepted
+            so a subset of the language will also be accepted
             by a TM
+
+            Prof says: False.  $\(a + b\)\kleene$ is outside of recursive
+            (but not ffinitely describable)
 
           \item RE (recursively enumerable) languages are closed under complement
 
             False.  I don't know why, but it has to be.
 
+            Prof says: For REs, we sometimes have undecidable words,
+            so we can't tell if those words are in the language ?
+
 
     \end{enumerate}
+
+    4.a individual Turing machines and individual C++ programs are finite.
+    Diagonilzation proofs only work on infinite sets
+
+    
 
 \end{enumerate}
 \end{document}
